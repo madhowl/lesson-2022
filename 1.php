@@ -5,7 +5,7 @@ $all_news = getAllNews();
 
 var_dump($all_news);
 echo '___________________';
-var_dump(getNewsById(3));
+var_dump(getNewsById(7));
 echo '___________________';
 var_dump($_SERVER['REQUEST_METHOD']);
 var_dump($_SERVER['REQUEST_URI']);

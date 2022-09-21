@@ -44,6 +44,11 @@ function dd($some){
     print_r($some);
     echo '</pre>';
 }
+function goUrl(string $url){
+    echo '<script type="text/javascript">location="';
+    echo $url;
+    echo '";</script>';
+}
 function getArticleList()
 {
     $news = getAllNews();
@@ -55,6 +60,7 @@ function getArticleList()
     }
     return $link;
 }
+
 function showCard(int $id)
 {
     $article = getNewsById($id);
@@ -71,4 +77,40 @@ function showCard(int $id)
 
 
 
+function getArticles() : array{
+    return json_decode(file_get_contents('db/articles.json'), true);
+}
 
+function addArticle(string $title, string $image, string $content) : bool{
+    $articles = getArticles();
+
+    $lastId = end($articles)['id'];
+    $id = $lastId + 1;
+
+    $articles[$id] = [
+        'id' => $id,
+        'title' => $title,
+        'image' => $image,
+        'content' => $content
+    ];
+
+    saveArticles($articles);
+    return true;
+}
+
+function removeArticle(int $id) : bool{
+    $articles = getArticles();
+
+    if(isset($articles[$id])){
+        unset($articles[$id]);
+        saveArticles($articles);
+        return true;
+    }
+
+    return false;
+}
+
+function saveArticles(array $articles) : bool{
+    file_put_contents('db/articles.json', json_encode($articles));
+    return true;
+}

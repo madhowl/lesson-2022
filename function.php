@@ -114,3 +114,29 @@ function saveArticles(array $articles) : bool{
     file_put_contents('db/articles.json', json_encode($articles));
     return true;
 }
+
+function editArticle(int $id) : array{
+    $articles = getArticles();
+    $article =[];
+    if(isset($articles[$id])){
+        $article = $articles[$id];
+    }
+    return $article;
+}
+
+function updateArticle(string $title, string $image, string $content,int $id):bool{
+    $articles = getArticles();
+
+    if(isset($articles[$id])) {
+        $articles[$id] = [
+            'id' => $id,
+            'title' => $title,
+            'image' => $image,
+            'content' => $content
+        ];
+        saveArticles($articles);
+        return true;
+    }else{
+        return false;
+    }
+}

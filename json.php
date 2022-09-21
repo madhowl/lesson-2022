@@ -11,14 +11,15 @@ if(isset($_POST['send'])){
     $article = getArticles();
     foreach ($article as $index){
         echo $index['title'].'&nbsp;';
-        echo '<a href="del.php?id='.$index['id'].'">'.'удалить'.'</a><br><br>';
+        echo '<a href="del.php?id='.$index['id'].'">'.'удалить'.'</a>&nbsp;';
+        echo '<a href="edit.php?id='.$index['id'].'">'.'редактировать'.'</a><br><br>';
     }
 }
 ?>
 
 <hr>
 <form action="" method="post">
-    заголовок<br><input type="text" name="title"><br>
+    заголовок<br><input type="text" name="title" value="<?=$article['title'];?>"><br>
     картинка<br><input type="text" name="image"><br>
     содержимое статьи<br>
     <textarea name="content" cols="30" rows="10">

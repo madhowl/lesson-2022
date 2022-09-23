@@ -124,19 +124,28 @@ function editArticle(int $id) : array{
     return $article;
 }
 
-function updateArticle(string $title, string $image, string $content,int $id):bool{
+function updateArticle(array $fields):bool{
+    $articleItem = checkFields( $_POST, $fields );
     $articles = getArticles();
-
-    if(isset($articles[$id])) {
-        $articles[$id] = [
-            'id' => $id,
-            'title' => $title,
-            'image' => $image,
-            'content' => $content
+    if(isset($articles[$articleItem['id']])) {
+        $articles[$articleItem['id']] = [
+            'id' => $articleItem['id'],
+            'title' => $articleItem['title'],
+            'image' => $articleItem['image'],
+            'content' => $articleItem['content']
         ];
         saveArticles($articles);
         return true;
     }else{
         return false;
     }
+}
+
+function checkFields(array $target, array $fields):array{
+    foreach ($fields as $name){
+        if(isset($target[$name])) {
+            $checkedFields[$name] = trim($target[$name]);
+        }
+    }
+    return $checkedFields;
 }

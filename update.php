@@ -2,11 +2,8 @@
 include ('function.php');
 
 if(isset($_POST['btnEdit'])){
-    $id = $_POST['id'];
-    $title = $_POST['title'];
-    $image = $_POST['image'];
-    $content = $_POST['content'];
-    updateArticle( $title, $image, $content, $id);
+    $fields =['id', 'title', 'image', 'content'];
+    updateArticle( $fields);
     goUrl('http://lesson-2022.test/json.php');
 
 }else{

@@ -2,7 +2,7 @@
 include ('function.php');
 
 if(isset($_POST['send'])){
- $title = $_POST['title'];
+ $title = htmlspecialchars( trim($_POST['title'],'<>'));
  $image = $_POST['image'];
  $content = $_POST['content'];
  addArticle($title, $image, $content);

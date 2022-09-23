@@ -5,7 +5,6 @@ if(isset($_GET['id'])){
     $id = $_GET['id'];
     $article = editArticle($id);
 }
-
 ?>
 
 <form action="update.php" method="post">

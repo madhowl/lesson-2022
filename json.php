@@ -2,11 +2,10 @@
 include ('function.php');
 
 if(isset($_POST['send'])){
- $title = htmlspecialchars( trim($_POST['title'],'<>'));
- $image = $_POST['image'];
- $content = $_POST['content'];
- addArticle($title, $image, $content);
- goUrl('http://lesson-2022.test/json.php');
+    $fields =['title', 'image', 'content'];
+    $articleFields = checkFields($_POST, $fields);
+    addArticle($articleFields);
+    //goUrl('json.php');
 }else{
     $article = getArticles();
     foreach ($article as $index){
@@ -19,7 +18,7 @@ if(isset($_POST['send'])){
 
 <hr>
 <form action="" method="post">
-    заголовок<br><input type="text" name="title" value="<?=$article['title'];?>"><br>
+    заголовок<br><input type="text" name="title"><br>
     картинка<br><input type="text" name="image"><br>
     содержимое статьи<br>
     <textarea name="content" cols="30" rows="10">

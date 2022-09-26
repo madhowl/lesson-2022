@@ -2,65 +2,47 @@
 // Включаем строгую типизацию
 declare(strict_types=1);
 
-function getAllNews():array{
-    return [
-        1 => [
-            'id'=>1,
-            'title'=>'Заголовок 1',
-            'image' => 'assets/img/blog/blog-1.jpg',
-            'content'=> '<p>текст первой новости</p>'
-        ],
-        2 => [
-            'id'=>2,
-            'title'=>'Заголовок 2',
-            'image' => 'assets/img/blog/blog-2.jpg',
-            'content'=> '<p>текст второй новости</p>'
-        ],
-        3 => [
-            'id'=>3,
-            'title'=>'Заголовок 3',
-            'image' => 'assets/img/blog/blog-3.jpg',
-            'content'=> '<p>текст 3 новости</p>'
-        ],
-        4 => [
-            'id'=>4,
-            'title'=>'Заголовок 4',
-            'image' => 'assets/img/blog/blog-4.jpg',
-            'content'=> '<p>текст 4 новости</p>'
-        ]
-    ];
-
+function getArticleList()
+{
+    $articles = getArticles();
+    $link = '';
+    foreach ($articles as $article) {
+        // URI news.php?id=1
+        $link .= '<li class="nav-item"><a class="nav-link" href="index.php?id='. $article['id']
+            . '">'. $article['title']. '</a></li>';
+    }
+    return $link;
 }
+
 function getNewsById(int $id):array{
-    $newslist =getAllNews();
+    $newslist =getArticles();
     $singlenews = [];
     if (array_key_exists($id, $newslist)) {
         $singlenews = $newslist[$id];
     }
     return $singlenews;
 }
+
+
+/**
+ * @param $some
+ * отладочная функция
+ */
 function dd($some){
     echo '<pre>';
     print_r($some);
     echo '</pre>';
 }
+
+/**
+ * @param $url
+ * редирект на указаный URL
+ */
 function goUrl(string $url){
     echo '<script type="text/javascript">location="';
     echo $url;
     echo '";</script>';
 }
-function getArticleList()
-{
-    $news = getAllNews();
-    $link = '';
-    foreach ($news as $n) {
-        // URI news.php?id=1
-        $link .= '<li class="nav-item"><a class="nav-link" href="index.php?id='. $n['id']
-. '">'. $n['title']. '</a></li>';
-    }
-    return $link;
-}
-
 function showCard(int $id)
 {
     $article = getNewsById($id);
@@ -75,38 +57,33 @@ function showCard(int $id)
 }
 
 
-
+/// --------- работа со статьями -------///
 
 function getArticles() : array{
     return json_decode(file_get_contents('db/articles.json'), true);
 }
 
-function addArticle(string $title, string $image, string $content) : bool{
+function addArticle(array $articleFields) : bool{
     $articles = getArticles();
-
     $lastId = end($articles)['id'];
     $id = $lastId + 1;
-
     $articles[$id] = [
         'id' => $id,
-        'title' => $title,
-        'image' => $image,
-        'content' => $content
+        'title' => $articleFields['title'],
+        'image' => $articleFields['image'],
+        'content' => $articleFields['content']
     ];
-
     saveArticles($articles);
     return true;
 }
 
 function removeArticle(int $id) : bool{
     $articles = getArticles();
-
     if(isset($articles[$id])){
         unset($articles[$id]);
         saveArticles($articles);
         return true;
     }
-
     return false;
 }
 
@@ -125,7 +102,7 @@ function editArticle(int $id) : array{
 }
 
 function updateArticle(array $fields):bool{
-    $articleItem = checkFields( $_POST, $fields );
+    $articleItem = checkFields( $_POST, $fields);
     $articles = getArticles();
     if(isset($articles[$articleItem['id']])) {
         $articles[$articleItem['id']] = [
@@ -141,11 +118,16 @@ function updateArticle(array $fields):bool{
     }
 }
 
-function checkFields(array $target, array $fields):array{
+function checkFields(array $target, array $fields, bool $html=true):array{
     foreach ($fields as $name){
-        if(isset($target[$name])) {
+        if(isset($target[$name]) && $html == false) {
             $checkedFields[$name] = trim($target[$name]);
+        }elseif (isset($target[$name]) && $html == true) {
+            $checkedFields[$name] = htmlspecialchars(string: trim($target[$name]));
         }
     }
     return $checkedFields;
+
 }
+
+

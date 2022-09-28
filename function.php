@@ -131,3 +131,11 @@ function checkFields(array $target, array $fields, bool $html=true):array{
 }
 
 
+
+
+///----- Admin Panel----//
+
+function showLoginForm(){
+    include ('login.html');
+}
+

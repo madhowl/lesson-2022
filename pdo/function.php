@@ -1,9 +1,25 @@
 <?php
 function connectDB(){
+     static $dbh;
      $dbh = new PDO('mysql:host=localhost;dbname=todo', 'admin', 'admin');
     return $dbh;
 }
-
+function showForm(string $action, string $title, string $value =''){
+     $form = <<< EOL
+        <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">$title</h4>
+                        <form action="$action" method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="work" value="$value">
+                            </div>
+                            <button type="submit" name="btnWork" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+    EOL;
+   return $form;
+}
 function getAllWorks(){
     $dbh = connectDB();
     $worklist = $dbh->query('SELECT * from worklist')
@@ -43,11 +59,20 @@ function delWork(int $id){
 function generateHtmlWorkList(array $worklist){
     $html = '';
     foreach ($worklist as $row) {
-        $html .= '<li class="list-group-item">' . $row['work_name'] . '
-    <a href="del.php?id='.$row['id'].'" style="color: red"><i class="fas fa-trash-alt"></i>
-</a>
-    <a href="to_complete.php" style="color: #44ff00"><i class="fas fa-check-circle"></i></a>
-    </li>';
+        $html .= <<<EOT
+            <li class="list-group-item ">
+                {$row['work_name']} 
+                <a href="to_complete.php?id={$row['id']}"class="btn btn-outline-success btn-sm ml-5">
+                    <span><i class="fas fa-check-circle "></i></span>
+                </a>
+                <a href="edit.php?id={$row['id']}" class="btn  btn-outline-primary btn-sm">
+                    <i class="fas fa-pen"></i>
+                </a>
+                <a href="del.php?id={$row['id']}" class="btn btn-outline-danger btn-sm">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </li>
+EOT;
     };
     return $html;
 }

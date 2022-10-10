@@ -20,17 +20,7 @@ require_once ('function.php');
 <div class="container">
     <div class="row my-2">
         <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Add new work</h4>
-                    <form action="add.php" method="post">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="work" >
-                        </div>
-                        <button type="submit" name="addWork" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div>
+            <?= showForm('add.php','Add new work' )?>
         </div>
     </div>
 

@@ -1,3 +1,8 @@
 <?php
 include ("function.php");
-addNewWork();
+if (isset($_POST['btnWork'])) {
+    $newWork = $_POST['work'];
+    addNewWork($newWork);
+}else{
+    echo 'aksjfgvh';
+}

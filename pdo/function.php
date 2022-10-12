@@ -54,9 +54,7 @@ function getWorkByid(int $id){
     return $singleWork;
 }
 
-function addNewWork(){
-    if (isset($_POST['addWork'])){
-        $newWork = $_POST['work'];
+function addNewWork(string $newWork){
         $dbh = connectDB();
         $query = "INSERT INTO worklist (work_name) VALUES (:name);";
         $params = [':name' => $newWork];
@@ -65,10 +63,7 @@ function addNewWork(){
         $dbh = null;
         header("Location: index.php");
         die();
-    }else{
-        header("Location: index.php");
-        die();
-    };
+
 }
 function updateWork(int $id, string $work){
         $dbh = connectDB();
@@ -86,7 +81,7 @@ function updateWork(int $id, string $work){
 
 function delWork(int $id){
     $dbh = connectDB();
-    $query = "DELETE FROM worklist WHERE ((`id` = :id))";
+    $query = "DELETE FROM worklist WHERE id = :id";
     $params = [':id' => $id];
     $stmt = $dbh->prepare($query);
     $stmt->execute($params);
@@ -95,11 +90,37 @@ function delWork(int $id){
     die();
 }
 
+function changeStatus($work){
+
+
+    $dbh = connectDB();
+    if ($work['work_status'] == 0) {
+        $status =1;
+    }
+    if ($work['work_status'] == 1) {
+        $status =0;
+    }
+    $query = "UPDATE worklist SET  work_status = :status  WHERE id = :id ;";
+    $params = [
+        ':status' => $status,
+        ':id' => $work['id'],
+    ];
+    $stmt = $dbh->prepare($query);
+    $stmt->execute($params);
+    $dbh = null;
+    header("Location: index.php");
+};
+
 function generateHtmlWorkList(array $worklist){
     $html = '';
     foreach ($worklist as $row) {
+        $html .= '<li class="list-group-item';
+        if($row['work_status']==1){
+            $html .=' list-group-item-success';
+        }
+        $html .='">';
         $html .= <<<EOT
-            <li class="list-group-item ">
+            
                 {$row['work_name']} 
                 <a href="to_complete.php?id={$row['id']}"class="btn btn-outline-success btn-sm ml-5">
                     <span><i class="fas fa-check-circle "></i></span>

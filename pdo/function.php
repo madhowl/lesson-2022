@@ -4,6 +4,7 @@ function connectDB(){
      $dbh = new PDO('mysql:host=localhost;dbname=todo', 'admin', 'admin');
     return $dbh;
 }
+
 function showForm(string $action, string $title, string $value ='',array $hidden=[]){
      $form = <<< EOL
         <div class="card">
@@ -33,38 +34,37 @@ EOO;
 
    return $form;
 }
+
 function getAllWorks(){
     $dbh = connectDB();
-    $worklist = $dbh->query('SELECT * from worklist')
-        ->fetchAll(PDO::FETCH_ASSOC);
+    $sql ='SELECT * from worklist';
+    $worklist = query($dbh, $sql);
     $dbh = null;
     return $worklist;
 }
 
 function getWorkByid(int $id){
     $dbh = connectDB();
-    $query = "SELECT * FROM worklist  WHERE id = :id ;";
+    $sql = "SELECT * FROM worklist  WHERE id = :id ;";
     $params = [
         ':id' => $id
     ];
-    $stmt = $dbh->prepare($query);
-    $stmt->execute($params);
-    $singleWork = $stmt->fetch(PDO::FETCH_ASSOC);
+    $singleWork = query($dbh, $sql, $params,'false');
     $dbh = null;
     return $singleWork;
 }
 
 function addNewWork(string $newWork){
         $dbh = connectDB();
-        $query = "INSERT INTO worklist (work_name) VALUES (:name);";
+        $sql = "INSERT INTO worklist (work_name) VALUES (:name);";
         $params = [':name' => $newWork];
-        $stmt = $dbh->prepare($query);
-        $stmt->execute($params);
+        query($dbh, $sql, $params);
         $dbh = null;
         header("Location: index.php");
         die();
 
 }
+
 function updateWork(int $id, string $work){
         $dbh = connectDB();
         $query = "UPDATE worklist SET  work_name = :work  WHERE id = :id ;";
@@ -91,13 +91,10 @@ function delWork(int $id){
 }
 
 function changeStatus($work){
-
-
     $dbh = connectDB();
     if ($work['work_status'] == 0) {
         $status =1;
-    }
-    if ($work['work_status'] == 1) {
+    }else{
         $status =0;
     }
     $query = "UPDATE worklist SET  work_status = :status  WHERE id = :id ;";
@@ -139,4 +136,21 @@ EOT;
 
 function showWorkList(){
     echo  generateHtmlWorkList( getAllWorks());
+}
+
+
+
+function query(PDO $db,string $sql,array $params = [],bool $all = false)
+{
+    // Подготовка запроса
+    $stmt = $db->prepare($sql);
+    // Выполняя запрос
+    $stmt->execute($params);
+    // Возвращаем ответ
+    if (!$all){
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }else{
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
 }

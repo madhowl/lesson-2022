@@ -3,7 +3,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "User\\Lesson2022\\": "app/"
+            "Todo\\": "app/"
         }
     },
     "authors": [
@@ -13,6 +13,7 @@
         }
     ],
     "require": {
-        "noahbuscher/macaw": "dev-master"
+        "noahbuscher/macaw": "dev-master",
+        "twig/twig": "^3.0"
     }
 }

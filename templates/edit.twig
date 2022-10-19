@@ -1,6 +1,6 @@
 {% extends "layout.twig" %}
 
-{% block title %}edit.twig{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
     <div class="row my-2">
@@ -13,7 +13,7 @@
                             <input type="text" class="form-control mb-2" name="work" value="{{ work.work_name }}">
                         </div>
                         <div class="form-group"><input type="hidden" class="form-control" name="id" value="{{ work.id }}"></div>
-                        <button type="submit" name="btnWork" class="btn btn-primary">Submit</button>
+                        <button type="submit" name="btnWork" class="btn btn-primary">Сохранить</button>
                     </form>
                 </div>
             </div>

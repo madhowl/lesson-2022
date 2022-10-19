@@ -15,5 +15,8 @@
     "require": {
         "noahbuscher/macaw": "dev-master",
         "twig/twig": "^3.0"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.1"
     }
 }

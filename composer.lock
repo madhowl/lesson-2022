@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "15ecff314f6cb9994ea0aca582669888",
+    "content-hash": "1a417b21285c426b380f009a58f414d0",
     "packages": [
         {
             "name": "noahbuscher/macaw",
@@ -398,7 +398,7 @@
     "prefer-lowest": false,
     "platform": {
         "php": "^7.4 || ^8.0",
-        "ext-mysqli": "*"
+        "ext-pdo": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"

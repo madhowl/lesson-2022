@@ -15,7 +15,7 @@ class TodoModel
     /**
      * @var PDO
      */
-    protected $dbh;
+    protected PDO $dbh;
 
     /**
      * TodoModel constructor.
@@ -29,9 +29,9 @@ class TodoModel
      * @param string $sql
      * @param array $params
      * @param bool $all
-     * @return array|mixed
+     * @return mixed
      */
-    private function query(string $sql, array $params = [], bool $all = false)
+    private function query(string $sql, array $params = [], bool $all = false): mixed
     {
         // Подготовка запроса
         $stmt = $this->dbh->prepare($sql);
@@ -46,27 +46,25 @@ class TodoModel
     }
 
     /**
-     * @return array|mixed
+     * @return mixed
      */
-    public function getAllWorks()
+    public function getAllWorks(): mixed
     {
         $sql ='SELECT * from worklist';
-        $worklist = $this->query( $sql);
-        return $worklist;
+        return $this->query( $sql);
     }
 
     /**
      * @param int $id
-     * @return array|mixed
+     * @return mixed
      */
-    public function getWorkByid(int $id)
+    public function getWorkByid(int $id): mixed
     {
         $sql = "SELECT * FROM worklist  WHERE id = :id ;";
         $params = [
             ':id' => $id
         ];
-        $singleWork = $this->query( $sql, $params,'false');
-        return $singleWork;
+        return $this->query( $sql, $params,'false');
     }
 
     /**

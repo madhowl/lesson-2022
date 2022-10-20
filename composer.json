@@ -13,6 +13,8 @@
         }
     ],
     "require": {
+        "php" : "^7.4 || ^8.0",
+        "ext-pdo": "*",
         "noahbuscher/macaw": "dev-master",
         "twig/twig": "^3.0"
     },

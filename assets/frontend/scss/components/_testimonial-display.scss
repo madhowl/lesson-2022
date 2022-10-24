@@ -1,0 +1,137 @@
+/***************************************
+* Components - Testimonial Display
+*****************************************/
+.testimonial-content-slider{
+    margin-bottom: 70px;
+    position: relative;
+    &::after{
+        position: absolute;
+        content: "";
+        width: 35px;
+        height: 35px;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        background-color: $themeColor;
+        background-image: url("../images/background/blue-noise-bg.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        bottom: -17.5px;
+    }
+}
+.testimonial-single-content-item {
+    background-color: $themeColor;
+    background-image: url("../images/background/blue-noise-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 120px 30px 40px;
+    color: $white;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.71;
+    position: relative;
+    z-index: 1;
+
+    @include breakpoint(medium){
+        font-size: 20px;
+        padding: 140px 50px 60px;
+    }
+    @include breakpoint(large){
+        font-size: 22px;
+        padding: 140px 80px 60px;
+    }
+    @include breakpoint(xlarge){
+        font-size: 24px;
+        padding: 140px 100px 60px;
+    }
+    @include breakpoint(xxlarge){
+        font-size: 24px;
+        padding: 140px 120px 60px;
+    }
+    @include breakpoint(xxxlarge){
+        font-size: 28px;
+        padding: 135px 140px 60px;
+    }
+
+
+    &::before,
+    &::after{
+        position: absolute;
+        content: "";
+        width: 45px;
+        height: 90px;
+        top: -25px;
+        left: calc(50% - 30px);
+        background: #f17e59;
+        z-index: -1;
+        transform: translateX(-50%) skewY(315deg);
+    }
+    &::before {
+        left: calc(50% + 37.5px);
+    }
+    &::after {
+        left: calc(50% - 37.5px);
+    }
+    .review-star {
+        margin-top: 25px;
+        @include breakpoint(medium){
+            margin-top: 35px;
+        }
+        @include breakpoint(large){
+            margin-top: 45px;
+        }
+        @include breakpoint(xlarge){
+            margin-top: 55px;
+        }
+    }
+
+
+}
+
+.testimonilal-single-thumb-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $baseTransition;
+    @include breakpoint(medium){
+        opacity: .22;
+    }
+    cursor: pointer;
+    .image{
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        margin-right: 30px;
+        img{
+            object-fit: cover;
+        }
+    }
+
+    .content{
+        .name{
+            font-size: 25px;
+            font-weight: 800;
+        }
+        p{
+            font-size: 16px;
+            font-weight: 500;
+        }
+        span{
+            display: inline-block;
+            padding-right: 7px;
+            &:last-child{margin-right: 0;}
+        }
+        .profession{
+            color: #72747a;
+        }
+
+        .company-name{
+            color: $themeColor;
+        }
+    }
+
+    &.swiper-slide-thumb-active{
+        opacity: 1;
+    }
+}

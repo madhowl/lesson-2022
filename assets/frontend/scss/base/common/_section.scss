@@ -1,0 +1,340 @@
+
+/* Section CSS*/
+.section-wrapper {
+    .btn{
+        margin-top: 40px;
+        @include breakpoint(medium){
+            margin-top: 0;
+        }
+    }
+}
+
+// Section Margin Top
+.section-top-gap-0{
+    margin-top: 0;
+}
+.section-top-gap-70{
+    margin-top: 50px;
+    @include breakpoint(medium){
+        margin-top: 70px;
+    }
+}
+.section-top-gap-100{
+    margin-top: 60px;
+    @include breakpoint(medium){
+        margin-top: 80px;
+    }
+    @include breakpoint(xlarge){
+        margin-top: 100px;
+    }
+
+}
+.section-top-gap-150{
+    margin-top: 80px;
+    @include breakpoint(xlarge){
+        margin-top: 100px;
+    }
+    @include breakpoint(xxlarge){
+        margin-top: 125px;
+    }
+    @include breakpoint(xxxlarge){
+        margin-top: 150px;
+    }
+}
+
+.section-top-gap-225{
+    margin-top: 125px;
+    @include breakpoint(medium){
+        margin-top: 145px;
+    }
+    @include breakpoint(xlarge){
+        margin-top: 175px;
+    }
+    @include breakpoint(xxlarge){
+        margin-top: 200px;
+    }
+    @include breakpoint(xxxlarge){
+        margin-top: 225px;
+    }
+}
+
+// Section Inner Padding -  Top
+.section-inner-padding-top-150{
+    padding-top: 80px;
+
+     @include breakpoint(xlarge){
+        padding-top: 100px;
+     }
+     @include breakpoint(xxlarge){
+        padding-top: 125px;
+     }
+     @include breakpoint(xxxlarge){
+        padding-top: 150px;
+     }
+ }
+
+
+// Section Inner Padding -  Bottom
+.section-inner-padding-bottom-150{
+    padding-bottom: 80px;
+     @include breakpoint(xlarge){
+        padding-bottom: 100px;
+     }
+     @include breakpoint(xxlarge){
+        padding-bottom: 125px;
+     }
+     @include breakpoint(xxxlarge){
+        padding-bottom: 150px;
+     }
+ }
+
+// Section Inner Padding -  Top & Bottom
+.section-inner-padding-80{
+   padding-top: 60px;
+   padding-bottom: 60px;
+    @include breakpoint(large){
+       padding-top: 80px;
+       padding-bottom: 80px;
+    }
+}
+.section-inner-padding-100{
+   padding-top: 60px;
+   padding-bottom: 60px;
+    @include breakpoint(medium){
+       padding-top: 80px;
+       padding-bottom: 80px;
+    }
+    @include breakpoint(xlarge){
+       padding-top: 100px;
+       padding-bottom: 100px;
+    }
+}
+
+.section-inner-padding-150{
+   padding-top: 80px;
+   padding-bottom: 80px;
+
+    @include breakpoint(xlarge){
+       padding-top: 100px;
+       padding-bottom: 100px;
+    }
+    @include breakpoint(xxlarge){
+       padding-top: 125px;
+       padding-bottom: 125px;
+    }
+    @include breakpoint(xxlarge){
+       padding-top: 150px;
+       padding-bottom: 150px;
+    }
+}
+
+
+// Section Padding - Left & Right
+
+.section-fluid-100{
+    padding-left: 30px;
+    padding-right: 30px;
+    @include breakpoint (small){
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    @include breakpoint (medium){
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    @include breakpoint (large){
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    @include breakpoint (xlarge){
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+.section-fluid-135{
+    @include breakpoint (large){
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    @include breakpoint (xlarge){
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    @include breakpoint (xxlarge){
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    @include breakpoint (xxxlarge){
+        padding-left: 123px;
+        padding-right: 123px;
+    }
+
+}
+
+
+.section-fluid-200{
+    @include breakpoint (small){
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    @include breakpoint (medium){
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    @include breakpoint (xlarge){
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    @include breakpoint (xxlarge){
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    @include breakpoint (xxxlarge){
+        padding-left: 188px;
+        padding-right: 188px;
+    }
+
+}
+
+
+// Section Bg Color
+.section-inner-bg{
+    background: #f9f9fa;
+}
+
+.section-inner-bg-theme-color{
+    background-color: $themeColor;
+}
+
+.section-inner-bg-theme-color-gradeint-noise{
+    background-color: $themeColor;
+    background-image: url("../images/background/blue-noise-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.section-inner-gray-gradient-bg{
+    background: linear-gradient(90deg, rgba(230,232,234,1) 0%, rgba(230,232,234,0.1) 66%, rgba(230,232,234,0) 100%);
+}
+.section-inner-gray-gradient-bg-reverse{
+    background: linear-gradient(270deg, rgba(230,232,234,1) 0%, rgba(230,232,234,0.1) 66%, rgba(230,232,234,0) 100%);
+}
+
+
+// Section Content Text Style
+.section-content{
+//   margin-top: -10px;
+    .section-tag{
+        font-weight: 800;
+        font-size: 16px;
+        text-transform: capitalize;
+        padding: 8px 20px;
+        display: inline-block;
+        margin-bottom: 30px;
+
+        &.tag-orange{
+            color: $colorOrange;
+            border: 1px dashed $colorOrange;
+        }
+        &.tag-blue{
+            color: $themeColor;
+            border: 1px dashed $themeColor;
+        }
+    }
+    .section-title{
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 1.29;
+
+        @include breakpoint (small){
+            font-size: 35px;
+        }
+        @include breakpoint (medium){
+            font-size: 40px;
+        }
+        @include breakpoint (xlarge){
+            font-size: 45px;
+        }
+    }
+
+    .section-subtitle{
+        font-size: 24px;
+        font-weight: 800;
+        @include breakpoint(small){
+            font-size: 28px;
+        }
+        @include breakpoint(medium){
+            font-size: 32px;
+        }
+        @include breakpoint(xlarge){
+            font-size: 35px;
+        }
+    }
+
+    .icon-seperator{
+        margin-top: 6px;
+        display: inline-block;
+    }
+
+    .btn{
+        margin-top: 50px;
+        @include breakpoint(large){
+            margin-top: 40px;
+        }
+        @include breakpoint(xxlarge){
+            margin-top: 60px;
+        }
+    }
+
+    p{
+      margin-top: 35px;
+    }
+
+}
+
+
+.section-content-gap{
+    &-50{
+        margin-bottom: 30px;
+    }
+    &-80{
+        margin-bottom: 30px;
+        @include breakpoint(medium){
+            margin-bottom: 50px;
+        }
+        @include breakpoint(large){
+            margin-bottom: 70px;
+        }
+    }
+}
+
+.section-shape {
+    position: relative;
+    z-index: 1;
+    &::after{
+        position: absolute;
+        content: "";
+        background: $white;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+
+        @include breakpoint(medium){
+            width: 200px;
+            height: 200px;
+        }
+        @include breakpoint(large){
+            width: 200px;
+            height: 200px;
+        }
+        @include breakpoint(xlarge){
+            width: 304px;
+            height: 304px;
+        }
+    }
+
+}

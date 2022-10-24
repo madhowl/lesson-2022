@@ -1,0 +1,76 @@
+/***************************************
+* Components - Project Display
+*****************************************/
+
+.project-dispaly-bg {
+    background-color: #e6e8ea;
+    background-image: url("../images/background/projects-display-bg.png");
+    background-position: top center;
+    background-size: cover;
+}
+
+.project-single-item{
+    position: relative;
+    display: block;
+    z-index: 1;
+    overflow: hidden;
+
+    .image{
+        height: 336px;
+        @include breakpoint(xlarge){
+            height: auto;
+        }
+    }
+
+    &::after{
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 50%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(135deg, rgba(73,163,254, .85) 0%, rgba(0,55,172, .85) 100%);
+        transition: $baseTransition;
+        opacity: 0;
+        visibility: hidden;
+        // z-index: -1;
+    }
+    .content{
+        position: absolute;
+        padding: 30px 30px;
+        bottom: -40%;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+        color: $white;
+        transition: $baseTransition;
+        @include breakpoint(small){
+            padding: 40px 40px;
+        }
+        @include breakpoint(medium){
+            padding: 40px 50px;
+        }
+        .inner{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .title{
+            color: $white;
+            font-size: 27px;
+            font-weight: 800;
+        }
+    }
+
+    &:hover{
+        &::after{
+            height: 100%;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .content{
+            bottom: 0%;
+        }
+    }
+}

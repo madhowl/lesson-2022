@@ -1,0 +1,131 @@
+/*****************************
+* Components - Promo Display
+*****************************/
+.promo-items{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 50px 40px;
+
+    @include breakpoint(small){
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakpoint(medium){
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 60px 60px;
+    }
+    @include breakpoint(large){
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @include breakpoint(xxlarge){
+        grid-gap: 70px 120px;
+    }
+}
+.promo-single-items{
+    .icon{
+        position: relative;
+        width: 40px;
+        height: 40px;
+        padding: 40px;
+        border: 1px solid $white;
+        border-radius: 50%;
+        transition: $baseTransition;
+
+        img{
+            position: absolute;
+            object-fit: cover;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: $baseTransition;
+            &:nth-child(2){opacity: 0;}
+        }
+
+        .dot-icon-hover{
+            display: flex;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%) translateX(20px);
+            opacity: 1;
+            transition: all .3s ease;
+            span{
+                display: inline-block;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background: $white;
+                opacity: 0;
+                transition: $baseTransition;
+                transform: translateX(0px);
+                &:nth-child(1){
+                    transition-delay: .1s;
+                }
+                &:nth-child(2){
+                    transition-delay: .2s;
+                }
+                &:nth-child(3){
+                    transition-delay: .3s;
+                }
+            }
+        }
+    }
+
+    .title{
+        font-weight: 800;
+        line-height: 1.26;
+        color: $white;
+        margin-top: 30px;
+        margin-bottom: 25px;
+        transition: $baseTransition;
+
+        @include breakpoint(small){
+            font-size: 26px;
+        }
+        @include breakpoint(medium){
+            font-size: 28px;
+        }
+        @include breakpoint(large){
+            font-size: 30px;
+        }
+    }
+
+    p{
+        font-size: 15px;
+        font-weight: 500;
+        color: $white;
+        margin-bottom: -10px;
+        @include breakpoint(medium){
+            font-size: 17px;
+        }
+    }
+
+    
+    &:hover{
+        .icon{
+            background: $white;
+            img{
+                &:nth-child(2){opacity: 1;}
+            }
+
+            .dot-icon-hover{
+                span{
+                    opacity: 1;
+                    &:nth-child(1){
+                        transform: translateX(15px);
+                    }
+                    &:nth-child(2){
+                        transform: translateX(30px);
+                    }
+                    &:nth-child(3){
+                        transform: translateX(45px);
+                    }
+                }
+            }
+        }
+
+        .title{
+            color: $colorOrange;
+        }
+        
+    }
+}

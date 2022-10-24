@@ -1,0 +1,70 @@
+/***************************************
+* Pages - FAQ
+*****************************************/
+.faq-inner-bg{
+    background-color: #f9f9fa;
+    background-image: url("../images/background/faq-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.accordian-single-item{
+    border: none;
+    margin-bottom: 35px;
+    &:last-child{
+        margin-bottom: 0;
+    }
+   .accordion-header{
+       .accordion-button{
+           font-size: 20px;
+           font-weight: 800;
+           line-height: 1;
+           padding: 38px 40px 37px;
+           background: $white;
+           color: $themeColor;
+
+           &.collapsed{
+               border-radius: 0;
+               color: $headingColor;
+           }
+
+           &:focus,
+           &:not(.collapsed){
+               box-shadow: none;
+           }
+
+           &::after{
+               font-size: 20px;
+               background-image: none;
+               content: "\ea7c";
+               font-family: "IcoFont";
+               font-weight: 400;
+               transition: $baseTransition;
+               transform: rotate(0deg);
+           }
+
+           &:not(.collapsed)::after {
+               transform: rotate(90deg);
+           }
+       }
+   }
+
+   .accordion-body{
+       padding: 32px 40px 32px;
+       border-top: none;
+       position: relative;
+       color: 15px;
+
+       &::before{
+           position: absolute;
+           content: "";
+           width: calc(100% - 80px);
+           height: 1px;
+           background: #edf0f5;
+           top: 0;
+           left: 50%;
+           transform: translateX(-50%);
+       }
+   }
+}

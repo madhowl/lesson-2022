@@ -1,0 +1,61 @@
+/***********************************
+* Components - Pagination
+*************************************/
+
+.page-pagination{
+    display: flex;
+    flex-wrap: flex;
+    margin-top: 58px;
+
+    @include breakpoint(large){
+        margin-top: 73px;
+    }
+
+    li{
+        margin-right: 10px;
+        @include breakpoint(medium){
+            margin-right: 20px;
+        }
+        @include breakpoint(large){
+            margin-right: 20px;
+        }
+        &:last-child{margin-right: 0;}
+    }
+
+    a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 58px;
+        height: 58px;
+        background: #f2f2f2;
+        color: $headingColor;
+        font-size: 16px;
+        font-weight: 700;
+        position: relative;
+        z-index: 1;
+        &::after{
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: $theme-linearGradient;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            visibility: hidden;
+            opacity: 0;
+            transition: $baseTransition;
+        }
+        
+        &:hover{
+            background: $colorOrange;
+            color: $white;
+
+            &::after{
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+}

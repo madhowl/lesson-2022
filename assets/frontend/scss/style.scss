@@ -1,0 +1,77 @@
+/*-----------------------------------------------------------------------------------
+    Template Name: Strane
+    Template Description: Strane - Startup Agency Bootstrap 5 Template
+    Version: 1.0
+-----------------------------------------------------------------------------------
+    
+    CSS INDEX
+    ===================
+	
+    -> Base - Default
+
+    -> Components - Hero Display
+    -> Components - Counter Display
+    -> Components - Promo Display
+    -> Components - Service Display
+    -> Components - Custom Content Container
+    -> Components - Project Display
+    -> Components - Company Logo Display
+    -> Components - Testimonial Display
+    -> Components - Subscribe Banner
+    -> Components - Team Display
+    -> Components - Breadcrumb
+    -> Components - Pagination
+    -> Components - Comment
+    -> Components - Forms
+
+
+    -> Pages - Service
+    -> Pages - Blogs
+    -> Pages - Portfolio
+    -> Pages - Contact
+    -> Pages - FAQ
+    -> Pages - Error 404
+
+    -> Layouts - Header
+    -> Layouts - Footer
+    -> Layouts - Sidebar
+-----------------------------------------------------------------------------------*/
+
+// Default
+@import "base/mixins";
+@import "base/variabls";
+@import "base/common";
+
+
+// Components
+@import "components/hero-display";
+@import "components/counter-display";
+@import "components/promo-display";
+@import "components/service-display";
+@import "components/custom-container";
+@import "components/project-display";
+@import "components/company-logo-display";
+@import "components/testimonial-display";
+@import "components/subscribe-banner";
+@import "components/team-display";
+@import "components/breadcrumb";
+@import "components/pagination";
+@import "components/comment";
+@import "components/form";
+
+
+// Pages
+@import "pages/service";
+@import "pages/blog";
+@import "pages/portfolio";
+@import "pages/contact";
+@import "pages/faq";
+@import "pages/error";
+
+
+// Layout
+@import "layouts/header";
+@import "layouts/footer";
+@import "layouts/sidebar";
+
+@import "base/material-scroll-top"

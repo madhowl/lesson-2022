@@ -1,0 +1,134 @@
+/***********************************
+* Components - Comment
+*************************************/
+
+.comment-area{
+    .title{
+        font-size: 30px;
+        font-weight: 800;
+    }
+}
+
+.comment-list-items{
+    margin-top: 30px;
+}
+
+.comment-list-single-item{
+    margin-bottom: 25px;
+    &:last-child{margin-bottom: 0;}
+    .has-reply{
+        margin-top: 25px;
+        margin-left: 0;
+        @include breakpoint(medium){
+            margin-left: 40px;
+        }
+        @include breakpoint(large){
+            margin-left: 60px;
+        }
+        @include breakpoint(xlarge){
+            margin-left: 100px;
+        }
+    }
+}
+
+.comment-list-single-wrap{
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    padding: 30px 35px;
+    .top{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
+        margin-bottom: 12px;
+        @include breakpoint(medium){
+            flex-direction: row;
+            align-items: center;
+        }
+        .reply-btn{
+            border-radius: 10px;
+            background: #f8f8f8;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 7px 20px;
+            color: $themeColor;
+            transition: $baseTransition;
+            &:hover{
+                background: $themeColor;
+                color: $white;
+            }
+        }
+
+        .user-details{
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            margin-bottom: 20px;
+            @include breakpoint(large){
+                margin-bottom: 0;
+                flex-direction: row;
+                align-items: center;
+            }
+            .image{
+                width: 90px;
+                height: 90px;
+                padding: 10px;
+                border: 1px solid rgba(#309255, .2);
+                border-radius: 50%;
+                margin-right: 0;
+                margin-bottom: 20px;
+                @include breakpoint(medium){
+                    margin-right: 30px;
+                }
+                img{
+                    width: 100%;
+                    object-fit: cover;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+            }
+
+            .user-info{
+                .name{
+                    font-size: 22px;
+                    font-family: $body-font;
+                    font-weight: 800;
+                }
+
+                .user-info-details{
+                    font-size: 15px;
+
+                    span{
+                        position: relative;
+                        margin-right: 25px;
+                        &:last-child{
+                            margin-right: 0;
+                        }
+                        &::after{
+                            position: absolute;
+                            content: "||";
+                            left: calc(100% + 7px);
+                            color: #797e86;
+                        }
+
+                        &:last-child{
+                            margin-right: 0;
+                            &::after{
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .profession{
+                        color: #383e38;
+                    }
+
+                    .time{
+                        color: $themeColor;
+                    }
+                }
+            }
+        }
+
+    }
+}

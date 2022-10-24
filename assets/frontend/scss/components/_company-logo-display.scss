@@ -1,0 +1,44 @@
+/***************************************
+* Components - Company Logo Display
+*****************************************/
+
+.company-logo-single-item {
+    text-align: center;
+    position: relative;
+    line-height: 230px;
+
+    &::after{
+        position: absolute;
+        content: "";
+        border-bottom: 2px solid $themeColor;
+        width: 0;
+        bottom: 0;
+        z-index: 11;
+        visibility: hidden;
+        opacity: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: $baseTransition;
+    }
+    .image{
+        width: 220px;
+        display: inline-block;
+        img{
+            object-fit: cover;
+        }
+    }
+
+    &:hover{
+        &::after{
+            visibility: visible;
+            opacity: 1;
+            width: 240px;
+        }
+        
+    }
+}
+
+.company-logo-border{
+    border-bottom: 2px solid #f4f4f4;
+
+}

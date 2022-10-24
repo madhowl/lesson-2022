@@ -1,0 +1,78 @@
+/*Form CSS*/
+
+.default-form-group,
+.comment-form{
+    .submit-btn{
+        margin-top: 42px;
+    }
+}
+.default-form-group-single-item{
+    input, textarea{
+        width: 100%;
+        padding: 15px 25px;
+        border-radius: 15px;
+        transition: $baseTransition;
+        font-weight: 400;
+    }
+
+    &.border-white{
+        input, textarea{
+            color: $bodyColor;
+            border: 1px solid $white;
+            &::placeholder{
+                color: $white;
+            }
+        }
+    }
+    &.border-gray{
+        input, textarea{
+            border: 1px solid rgba($headingColor, .2);
+            &::placeholder{
+                color: $bodyColor;
+            }
+
+            &:focus{
+              border-color: $themeColor;
+            }
+        }
+    }
+    &.border-dark-gray{
+        input, textarea{
+            border: 1px solid #c4c4d2;
+            color: $bodyColor;
+            &::placeholder{
+                color: $bodyColor;
+            }
+
+            &:focus{
+              border-color: $themeColor;
+            }
+        }
+    }
+
+}
+
+.default-search-form{
+  position: relative;
+  input{
+    background: $headingColor;
+    color: $headingColor;
+    padding-right: 70px;
+    border-radius: 10px;
+    &::placeholder{
+        color: $headingColor;
+    }
+  }
+
+  button{
+    position: absolute;
+    height: 100%;
+    padding: 22px;
+    color: $white;
+    right: 0;
+    background: $themeColor;
+    border-radius: 10px;
+    line-height: 15px;
+  }
+
+}

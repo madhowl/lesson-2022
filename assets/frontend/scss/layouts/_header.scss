@@ -1,0 +1,147 @@
+/************************************
+* Layouts - Header
+************************************/
+.header-section{
+    width: 100%;
+    z-index: 999;
+    background: linear-gradient(90deg, rgba(230,232,234,1) 0%, rgba(230,232,234,0.1) 66%, rgba(230,232,234,0) 100%);
+}
+
+.header-btn-link{
+    .btn{
+        font-size: 16px;
+        padding: 15px 30px;
+        border-radius: 32.5px;
+        @include breakpoint(medium){
+            font-size: 18px;
+            padding: 18px 40px;
+        }
+        @include breakpoint(xlarge){
+            font-size: 18px;
+            padding: 18px 48px;
+        }
+    }
+
+}
+
+.header-logo{
+    display: block;
+}
+
+.header-nav{
+    display: flex;
+
+    & > li{
+        @include breakpoint(large){
+            margin-right: 28px;
+        }
+        @include breakpoint(xlarge){
+          margin-right: 40px;
+        }
+        @include breakpoint(xxxlarge){
+          margin-right: 55px;
+        }
+
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+
+    & > li > a{
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 106px;
+        display: inline-block;
+        color: $headingColor;
+        position: relative;
+
+        &:hover{
+            color: $themeColor;
+        }
+
+    }
+
+    .has-dropdown{
+        position:  relative;
+
+        &:hover .submenu{
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0) scaleY(1);
+        }
+    }
+
+    .submenu{
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        width: 280px;
+        background: $themeColor;
+        box-shadow: 0 0 5px rgba($black, 0.3);
+        border-radius: 0 0 5px 5px;
+        visibility: hidden;
+        opacity: 0;
+        transition: transform 0.1s cubic-bezier(0.2, 0, 0.2, 1), opacity 0.2s cubic-bezier(0.2, 0, 0.2, 1);
+        transform: translateY(0px) scaleY(0.2);
+        transform-origin: top;
+        transition: $baseTransition;
+        z-index: 9;
+        overflow: hidden;
+        a{
+            padding: 10px 25px;
+            display: block;
+            position: relative;
+            color: $white;
+            z-index: 1;
+
+            &::after{
+                position: absolute;
+                content: "";
+                top: 0;
+                left: auto;
+                right: 0;
+                width: 0%;
+                height: 100%;
+                background: $white;
+                transition: $baseTransition;
+                z-index: -1;
+            }
+
+            &:hover{
+                color: $themeColor;
+                &::after{
+                    left: 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+
+/*Main Menu Style*/
+.header-section.sticky-header.sticky {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.sticky-header.sticky {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    top: 0;
+    background: #ebf0f6;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    animation-name: fadeInDown;
+    animation-duration: 900ms;
+    animation-timing-function: cubic-bezier(0.2, 1, 0.22, 1);
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    border-bottom: 0;
+}
+
+
+@import "mobile-menu/mobile-header";
+@import "mobile-menu/offcanvas-menu";

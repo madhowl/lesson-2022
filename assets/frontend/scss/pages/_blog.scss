@@ -1,0 +1,13 @@
+/***********************************
+* Pages - Blogs
+*************************************/
+
+@import "blog/blog-list";
+@import "blog/blog-details";
+
+.blog-feed-dispaly-bg {
+    background-color: #e6e8ea;
+    background-image: url("../images/background/blog-feed-display-bg.png");
+    background-position: top center;
+    background-size: cover;
+}

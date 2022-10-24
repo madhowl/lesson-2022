@@ -1,0 +1,36 @@
+//=======================
+// Developer Variable
+//=======================
+
+// Font Family
+$font-manrope: 'Manrope', sans-serif;
+$font-roboto: 'Roboto', sans-serif;
+$heading-font: $font-manrope;
+$body-font: $font-manrope;
+
+
+
+// Transition
+$baseTransition: all .5s ease;
+
+// Body Color
+$bodyColor: #595d6b;
+$themeColor: #1b5fc7;
+$headingColor: #101320;
+$colorOrange: #f17e59;
+$borderColor:  #eee;
+$colorGray: #f5f5fc;
+$colorGray-2: #f5f9ff;
+$white: #fff;
+$black: #000;
+
+$theme-linearGradient: linear-gradient(270deg, rgba(73,163,254,1) 0%, rgba(0,55,172,1) 100%);
+$theme-linearGradient-reverse: linear-gradient(270deg, rgba(0,55,172,1) 0%, rgba(73,163,254,1) 100%);
+
+
+$colorLightBlue: #e9f8ff;
+$colorLightPurple: #f5ecff;
+$colorLightOrange: #fff5e9;
+$colorLightPink: #ffeafa;
+$colorLightRed: #ffede8;
+$colorLightGreen: #ebf8e3;

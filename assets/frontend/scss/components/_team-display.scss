@@ -1,0 +1,118 @@
+/***************************************
+* Components - Team Display
+*****************************************/
+
+.team-single-item{
+    text-align: center;
+    position: relative;
+    .content{
+        text-transform: capitalize;
+        .name{
+            font-size: 27px;
+            font-weight: 800;
+            line-height: 1.40;
+        }
+
+        .profession{
+            color: $colorOrange;
+            font-size: 15px;
+            line-height: 2;
+            display: block;
+        }
+    }
+
+    .top{
+        position: relative;
+        margin-bottom: 20px;
+        overflow: hidden;
+        &::after{
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 50%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(135deg, rgba(73,163,254, .85) 0%, rgba(0,55,172, .85) 100%);
+            transition: $baseTransition;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .content{
+            position: absolute;
+            padding: 30px 30px;
+            bottom: -40%;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+            transition: $baseTransition;
+            .name{
+                color: $white;
+            }
+
+            .profession{
+                color: $colorOrange;
+            }
+        }
+    }
+
+    .bottom{
+        overflow: hidden;
+        height: 70px;
+        .content{
+            transition: $baseTransition;
+            opacity: 1;
+
+        }
+
+        .social-link{
+            display: flex;
+            justify-content: center;
+            transform: translateY(50px);
+            transition: $baseTransition;
+            li{
+                margin-right: 20px;
+                &:last-child{margin-right: 0;}
+            }
+
+            a{
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                color: $headingColor;
+                border: 1px dashed $colorOrange;
+                text-align: center;
+                line-height: 50px;
+
+                &:hover{
+                    color: $white;
+                    background: $colorOrange;
+                    border: 1px dashed $colorOrange;
+                }
+            }
+        }
+    }
+
+    &:hover{
+        .top{
+            &::after{
+                height: 100%;
+                opacity: 1;
+                visibility: visible;
+            }
+    
+            .content{
+                bottom: 0%;
+            }
+        }
+        .bottom{
+            .content{
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            .social-link{
+                transform: translateY(-66px);
+            }
+        }
+    }
+}

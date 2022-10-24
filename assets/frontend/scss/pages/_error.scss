@@ -1,0 +1,54 @@
+/***************************************
+* Pages - Error 404
+*****************************************/
+
+.error-bg{
+    background-color: $colorGray;
+    background-image: url("../images/background/error-404-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.faq-content{
+    .title{
+        font-size: 30px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        span{
+            font-size: 26px;
+        }
+
+        @include breakpoint (small){
+            font-size: 35px;
+            span{
+                font-size: 28px;
+            }
+        }
+        @include breakpoint (medium){
+            font-size: 40px;
+            span{
+                font-size: 30px;
+            }
+        }
+        @include breakpoint (xlarge){
+            font-size: 45px;
+            span{
+                font-size: 33px;
+            }
+        }
+    }
+
+    p{
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .btn{
+        margin-top: 20px;
+    }
+}
+
+.error-img {
+    margin-bottom: -57px;
+}

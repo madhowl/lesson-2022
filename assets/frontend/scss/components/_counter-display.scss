@@ -1,0 +1,236 @@
+/*****************************
+* Components - Counter Display
+*****************************/
+
+.count-wrapper{
+    .title{
+        font-size:24px;
+        font-weight: 800;
+        margin-bottom: 30px;
+        margin-top: -10px;
+        @include breakpoint(small){
+            font-size: 30px;
+        }
+        @include breakpoint(medium){
+            font-size: 33px;
+            text-align: center;
+        }
+        @include breakpoint(large){
+            font-size: 37px;
+        }
+        @include breakpoint(xlarge){
+            font-size: 40px;
+            text-align: left;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+        @include breakpoint(xxlarge){
+            font-size: 40px;
+        }
+        @include breakpoint(xxxlarge){
+            font-size: 45px;
+        }
+        line-height: 1.37;
+        span:nth-child(1){color: $themeColor;}
+        span:nth-child(2){color: $colorOrange;}
+    }
+}
+
+
+.counter-items {
+
+
+    &-style-1{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: -30px;
+        justify-content: center;
+
+        @include breakpoint(small){
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+    
+        @include breakpoint(xxxlarge){
+            flex-wrap: nowrap;
+        }
+        @include breakpoint(xlarge){
+            justify-content: flex-end;
+        }
+        .counter-single-item{
+            &:last-child{margin-right: 0;}
+            @include breakpoint(small){
+                margin-right: 25px;
+            }
+            @include breakpoint(medium){
+                margin-right: 67px;
+            }
+            @include breakpoint(large){
+                margin-right: 60px;
+            }
+            @include breakpoint(xlarge){
+                margin-right: 50px;
+            }
+            @include breakpoint(xxlarge){
+                margin-right: 50px;
+            }
+            @include breakpoint(xxxlarge){
+               margin-right: 90px;
+            }
+        }
+    }
+
+    &-style-2{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        @include breakpoint(small){
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include breakpoint(medium){
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @include breakpoint(large){
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @include breakpoint(xlarge){
+            grid-template-columns: repeat(5, 1fr);
+        }
+        .counter-single-item{
+            .title{
+                text-align: center;
+            }
+        }
+    }
+}
+
+.counter-single-item {
+    text-align: center;
+    margin-bottom: 30px;
+    &:last-child{
+        margin-right: 0;
+    }
+    .count-box {
+        position: relative;
+        width: 155px;
+        height: 155px;
+        margin: 0 auto;
+
+        img {
+            object-fit: cover;
+        }
+
+        .text {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 105px;
+            height: 105px;
+            border-radius: 50%;
+            background: #fafbfb;
+            font-size: 25px;
+            font-weight: 800;
+            color: $headingColor;
+        }
+    }
+
+    .title {
+        font-size: 20px;
+        font-weight: 800;
+        margin-top: 25px;
+        margin-bottom: 0;
+    }
+}
+
+@keyframes dotline-animate {
+    0%{
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100%{
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+.dotline-animate{
+    display: flex;
+    position: absolute;
+    width: 151px;
+    z-index: 1;
+    display: none;
+    height: 34px;
+    top: 50%;
+    left: 46%;
+    transform: translate(-50%, -50%);
+    @include breakpoint(xxxlarge){
+        display: block;
+    }
+    
+    &::after{
+        position: absolute;
+        content: "";
+        left: 0%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        border: 1px dashed rgba(84, 92, 233, 0.1);
+        z-index: -1;
+    }
+    span{
+        position: relative;
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-right: 60px;
+        &::before,
+        &::after{
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: dotline-animate 3s infinite linear ;
+        }
+
+        &:last-child{
+            margin-right: 0;
+            &::after{
+                display: none;
+            }
+        }
+        &.blue{
+            background: $themeColor;
+            &::before,
+            &::after{
+                background: $themeColor;
+            }
+
+            &::after{
+                animation: dotline-animate 2s infinite 1s linear ;
+            }
+
+            &:first-child{
+                &::before,
+                &::after{
+                    animation: none;
+                    display: none;
+                }
+            }
+            
+        }
+        &.orange{
+            background: $colorOrange;
+            &::before,
+            &::after{
+                animation: none;
+                display: none;
+            }
+        }
+    }
+}

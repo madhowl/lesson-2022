@@ -1,0 +1,131 @@
+/***************************************
+* Components - Custom Content Container
+*****************************************/
+
+.custom-box-wrapper {
+    position: relative;
+    z-index: 1;
+
+    @include breakpoint(large) {
+        display: flex;
+        align-items: center;
+    }
+
+    @include breakpoint(xlarge) {
+        height: 540px;
+    }
+
+    @include breakpoint(xxlarge) {
+        height: 515px;
+    }
+
+    @include breakpoint(xxxlarge) {
+        display: block;
+        height: 830px;
+    }
+
+    .content-inner-img {
+        padding: 0 15px;
+        margin-bottom: 40px;
+
+        @include breakpoint(large) {
+            padding: 0;
+            width: calc(100% - 40px);
+            margin-bottom: 0;
+            margin-right: 40px;
+        }
+
+        @include breakpoint(xxxlarge) {
+            position: absolute;
+            z-index: -1;
+            display: flex;
+            margin-right: 0;
+            &-left{ justify-content: flex-start;}
+            &-right{ justify-content: flex-end;}
+        }
+    }
+
+    &.about-box-wrapper{
+        @include breakpoint(xlarge) {
+            height: 790px;
+        }
+        @include breakpoint(xxlarge) {
+            height: 770px;
+        }
+        @include breakpoint(xxxlarge) {
+            height: 795px;
+        }
+
+       .custom-section-content-about{
+            top: 0;
+            margin-top: -10px;
+       }
+    }
+}
+
+.custom-section-content {
+    position: relative;
+
+    @include breakpoint (xxxlarge) {
+        position: absolute;
+        width: 440px;
+        top: 45px;
+        &-left{ left: 0;}
+        &-right{ right: 0;}
+    }
+
+    &-about{
+        @include breakpoint (xxxlarge) {
+            position: absolute;
+            width: 470px;
+            top: 45px;
+            &-left{ left: 0;}
+            &-right{ right: 0;}
+        }
+    }
+
+    p {
+        font-size: 17px;
+        font-weight: 500
+    }
+
+    .content-lists {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 10px;
+        font-size: 19px;
+        font-weight: 700;
+        color: $headingColor;
+        margin-top: 25px;
+
+        @include breakpoint (medium) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include breakpoint (xxxlarge) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+        }
+
+        i {
+            display: inline-block;
+            margin-right: 20px;
+            width: 20px;
+            height: 20px;
+            background: $themeColor;
+            color: $white;
+            border-radius: 50%;
+            font-size: 12px;
+            text-align: center;
+            line-height: 20px;
+        }
+    }
+
+    .btn {
+        margin-top: 40px !important;
+    }
+}

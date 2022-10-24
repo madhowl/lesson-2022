@@ -1,0 +1,65 @@
+/***************************************
+* Components - Subscribe Banner
+*****************************************/
+.subscribe-banner{
+    background: $colorOrange;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    
+    &::after{
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: url("../images/background/banner-shape-1.png");
+        width: 500px;
+        height: 100%;
+        z-index: -1;
+    }
+
+    .big-text{
+        font-size: 27px;
+        font-weight: 800;
+        color: $white;
+        line-height: 1.28;
+        margin-bottom: 30px;
+
+        @include breakpoint(small){
+            font-size: 36px;
+        }
+        @include breakpoint(large){
+            margin-bottom: 0px;
+        }
+        @include breakpoint(xlarge){
+            font-size: 45px;
+        }
+    }
+
+    &-overflow{
+        margin-bottom: -135px;
+        z-index: 1;
+
+        @include breakpoint(xxlarge){
+            margin-bottom: -200px;
+        }
+        @include breakpoint(xxxlarge){
+            margin-bottom: -200px;
+        }
+        .big-text{
+            
+        margin-bottom: 30px;
+            @include breakpoint(large){
+                margin-bottom: 40px;
+            }
+            @include breakpoint(xlarge){
+                margin-bottom: 0;
+                font-size: 45px;
+            }
+        }
+        
+    }
+}

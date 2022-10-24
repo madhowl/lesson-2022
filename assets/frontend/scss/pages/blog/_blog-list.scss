@@ -1,0 +1,111 @@
+.blog-list-items {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 40px;
+    grid-column-gap: 50px;
+
+    @include breakpoint(medium){
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakpoint(large){
+        grid-template-columns: repeat(1, 1fr);
+    }
+    @include breakpoint(xlarge){
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+.blog-list-items-full-width{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 40px;
+    grid-column-gap: 50px;
+
+    @include breakpoint(medium){
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakpoint(large){
+        grid-template-columns: repeat(1, 1fr);
+    }
+    @include breakpoint(xlarge){
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.blog-list-single-item{
+    .image{
+        display: block;
+        margin-bottom: 32px;
+        width: 100%;
+        img{
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+
+    .content{
+        .author{
+            font-weight: 600;
+            color: #9b9ea1;
+            font-size: 16px;
+            a{
+                color: $headingColor;
+                padding-left: 10px;
+
+                &:hover{
+                    color: $colorOrange;
+                }
+            }
+        }
+        .title{
+            font-size: 22px;
+            font-family: $body-font;
+            font-weight: 800;
+            line-height: 1.52;
+            margin-top: 14px;
+            margin-bottom: 15px;
+
+            a{
+                color: #081131;
+                &:hover{
+                    color: $themeColor;
+                }
+
+            }
+        }
+
+        p{font-size: 14px;}
+
+        .post-info{
+            font-size: 15px;
+            font-weight: 600;
+            color: #3a3e4c;
+
+            span{
+                position: relative;
+                margin-right: 24px;
+                &::after{
+                    position: absolute;
+                    content: "";
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: calc(100% + 13px);
+                    background: $themeColor;
+                    font-size: 20px;
+                    width: 4px;
+                    height: 4px;
+                    border-radius: 50%;
+                }
+                &:last-child{
+                    margin-right: 0;
+                    &::after{
+                        display: none;
+                    }
+                }
+
+            }
+        }
+    }
+}

@@ -1,0 +1,334 @@
+/*Typography CSS*/
+.default-text-content {
+
+  &.mt-80{
+    margin-top: 50px;
+    @include breakpoint(medium){
+      margin-top: 60px;
+    }
+    @include breakpoint(large){
+      margin-top: 80px;
+    }
+  }
+
+  .default-content-hero-image {
+    margin-bottom: 58px;
+    text-align: center;
+    overflow: hidden;
+
+    img{
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .default-content-image{
+    margin-top: 33px;
+  }
+
+  .title {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+    margin-top: 40px;
+    margin-bottom: 25px;
+
+    @include breakpoint(small){
+        font-size: 32px;
+    }
+    @include breakpoint(medium){
+        font-size: 40px;
+        margin-top: 45px;
+    }
+    @include breakpoint(large){
+        margin-bottom: 20px;
+    }
+    @include breakpoint(xlarge){
+        font-size: 45px;
+        margin-top: 40px;
+        margin-bottom: 35px;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+  }
+
+  .subtitle{
+    font-size: 18px;
+    font-family: $body-font;
+    font-weight: 800;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    margin-top: 33px;
+    display: block;
+
+    @include breakpoint(medium) {
+      font-size: 20px;
+    }
+    @include breakpoint(large) {
+      font-size: 26px;
+    }
+  }
+
+  .content-banner {
+    background-color: $themeColor;
+    background-image: url("../images/background/blue-noise-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    font-size: 18px;
+    padding: 30px;
+    color: $white;
+    line-height: 1.52;
+    margin-top: 33px;
+    margin-bottom: 32px;
+
+    strong{
+      font-weight: 800;
+    }
+
+    @include breakpoint(small) {
+      font-size: 20px;
+      padding: 30px 40px;
+
+    }
+    @include breakpoint(medium) {
+      font-size: 26px;
+      padding: 40px 50px;
+    }
+
+    @include breakpoint(large) {
+      font-size: 30px;
+      padding: 50px 90px;
+    }
+    @include breakpoint(xlarge) {
+      font-size: 48px;
+      padding: 60px 90px;
+    }
+  }
+
+  .block-quote{
+    margin-top: 35px;
+    margin-bottom: 35px;
+    background: #f9f9fa;
+    color: $headingColor;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.6;
+    padding: 30px 35px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    @include breakpoint(medium){
+      font-size: 18px;
+      padding: 40px 45px;
+    }
+    @include breakpoint(large){
+      font-size: 22px;
+      padding: 50px 50x;
+    }
+    @include breakpoint(xlarge){
+      font-size: 25px;
+      padding: 50px 65px;
+    }
+
+    &::after{
+      position: absolute;
+      content: "";
+      background-image: url("../images/icons/block-quotes.png");
+      width: 152px;
+      height: 114px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+  }
+
+  p{
+    strong{
+      font-size: 16px;
+      font-weight: 700;
+      color: $headingColor;
+    }
+  }
+
+  .default-item-list {
+    margin-top: 45px;
+    margin-bottom: 42px;
+    li {
+      font-size: 15px;
+      font-weight: 700;
+      color: $themeColor;
+      border: 1px solid #ededed;
+      border-radius: 10px;
+      padding: 12px 30px;
+      display: flex;
+      margin-bottom: 10px;
+      transition: $baseTransition;
+      &:last-child{margin-bottom: 0;}
+
+      i {
+        font-size: 22px;
+        padding-right: 15px;
+        line-height: 1.4;
+      }
+
+      &:hover{
+        border-color: #efefef;
+        background: #f7faff;
+      }
+    }
+  }
+}
+
+.default-iconic-item{
+  margin-top: 35px;
+  margin-bottom: 35px;
+  li{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 35px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+
+    @include breakpoint(medium){
+      flex-direction: row;
+    }
+  }
+  .icon{
+    width: 65px;
+    height: 65px;
+    background: $themeColor;
+    border-radius: 50%;
+    line-height: 65px;
+    text-align: center;
+    margin-bottom: 30px;
+    @include breakpoint(medium){
+      margin-bottom: 0;
+      margin-right: 50px;
+    }
+    img{
+      object-fit: cover;
+    }
+  }
+
+  .content{
+    width: 100%;
+    @include breakpoint(medium){
+      width: calc(100% - 105px);
+    }
+    .smalltitle{
+      font-size: 25px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.default-iconic-item-2{
+  margin-top: 45px;
+  li{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 35px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+
+  }
+  .icon{
+    width: 65px;
+    height: 65px;
+    background: $themeColor;
+    border-radius: 50%;
+    line-height: 65px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 25px;
+    color: $white;
+    
+  }
+
+  .content{
+    width: calc(100% - 105px);
+    margin-left: 50px;
+
+    .smalltitle{
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.default-inner-grid-content {
+  margin-top: 60px;
+
+  .ml-70 {
+    margin-left: 0;
+
+    @include breakpoint(large) {
+      margin-left: 70px;
+    }
+  }
+
+  .mr-70 {
+    margin-right: 0;
+
+    @include breakpoint(large) {
+      margin-right: 70px;
+    }
+  }
+
+  .image {
+    width: 100%;
+    text-align: center;
+
+    @include breakpoint(large) {
+      width: 40%;
+    }
+  }
+
+  .content {
+    width: 100%;
+    margin-top: 30px;
+
+    @include breakpoint(large) {
+      margin-top: 0;
+      width: calc(60% - 70px);
+    }
+
+    .sub-title {
+      font-size: 35px;
+      color: $headingColor;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.reviews-star {
+  display: flex;
+  font-size: 20px;
+
+  li{
+    margin-right: 8px;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+
+  .fill {
+    color: #ffa80d;
+  }
+
+  .blank {
+    color: #b8b8b8;
+  }
+}

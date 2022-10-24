@@ -1,0 +1,131 @@
+/*****************************
+* Components - Hero Display
+*****************************/
+
+.hero-wrapper{
+    
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    @include breakpoint(large){
+        flex-direction: row;
+    }
+    @include breakpoint(xxxlarge){
+        height: 840px;
+        flex-direction: row;
+    }
+
+    .hero-image{
+        position: relative;
+        padding: 0 20px;
+        margin-bottom: 50px;
+        margin-top: 90px;
+        @include breakpoint(large){
+            margin-bottom: 0px;
+            margin-top: 0px;
+        }
+        @include breakpoint(xxxlarge){
+            margin-bottom: 0;
+            position: absolute;
+            right: 0;
+            z-index: -1;
+        }
+        
+    }
+
+    .hero-content{
+        padding: 0px 20px;
+        width: 100%;
+        @include breakpoint(large){
+            padding: 85px 20px 0 20px;
+        }
+        @include breakpoint(xlarge){
+            padding: 100px 20px 0px 20px;
+        }
+        @include breakpoint(xxlarge){
+            width: 50%;
+            padding: 100px 0;
+        }
+        @include breakpoint(xxxlarge){
+            width: 45%;
+            padding: 100px 0;
+        }
+        .title-tag{
+            font-size: 22px;
+            font-weight: 700;
+            padding: 7.5px 20px;
+            border: 1px dashed rgba(#c3c4c7, 1);
+            color: $colorOrange;
+            position: relative;
+
+            &::after{
+                position: absolute;
+                content: "";
+                background-image: url("../images/particle/right-arrow.png");
+                width: 21px;
+                height: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                right: -40px;
+            }
+        }
+        .title{
+            font-weight: 800;
+            line-height: 1.13;
+            font-size: 32px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+
+            span{
+                color: $themeColor;
+            }
+            @include breakpoint(small){
+                font-size: 40px;
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+            @include breakpoint(medium){
+                font-size: 50px;
+                margin-top: 40px;
+                margin-bottom: 40px;
+            }
+            @include breakpoint(xlarge){
+                font-size: 48px;
+            }
+            @include breakpoint(xxlarge){
+                font-size: 65px;
+            }
+            @include breakpoint(xxxlarge){
+                font-size: 75px;
+                margin-top: 43px;
+                margin-bottom: 45px;
+            }
+        }
+
+        p{
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.818;
+            color: #3a3e4c;
+            @include breakpoint(xlarge){
+                font-size: 22px;
+            }
+        }
+
+        .btn{
+            margin-top: 36px;
+            font-size: 16px;
+            padding: 15px 30px;
+            border-radius: 36px;
+            @include breakpoint(medium){
+                font-size: 18px;
+                padding: 18px 40px;
+            }
+            @include breakpoint(xxlarge){
+                font-size: 18px;
+                padding: 21.5px 55px;
+            }
+        }
+    }
+}

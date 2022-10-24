@@ -1,0 +1,60 @@
+/*Portfolio List Page*/
+.projects-gallery-filter-nav{
+    background: #f1f5f9;
+    padding: 22px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 60px;
+    margin-right: 0;
+    margin-left: 0;
+    @include breakpoint(medium){
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+    @include breakpoint(large){
+        padding: 22px 110px;
+        margin-bottom: 80px;
+        margin-right: 100px;
+        margin-left: 100px;
+    }
+    @include breakpoint(xlarge){
+        margin-right: 170px;
+        margin-left: 170px;
+    }
+    .btn{
+        font-size: 16px;
+        font-weight: 700;
+        color: #323639;
+        padding: 0;
+        margin-right: 50px;
+        position: relative;
+        overflow: visible;
+        &::after{
+            position: absolute;
+            content: "//";
+            top: 50%;
+            left: calc(100% + 20px);
+            transform: translateY(-50%);
+            color: #323639;
+        }
+        &:last-child{
+            margin-right: 0;
+            &::after{
+                display: none;
+            }
+        }
+
+        @include breakpoint(xlarge){
+            margin-right: 75px;
+            &::after{
+                left: calc(100% + 30px);
+            }
+        }
+        
+
+        &.active, &:hover{
+            color: $themeColor;
+        }
+    }
+}

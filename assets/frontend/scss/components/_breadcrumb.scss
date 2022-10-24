@@ -1,0 +1,94 @@
+/***********************************
+* Components - Breadcrumb
+*************************************/
+
+.breadcrumb-wrapper{
+    background-color: $themeColor;
+    background-image: url("../images/background/blue-noise-bg.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    padding-top: 158px;
+    padding-bottom: 80px;
+    text-transform: capitalize;
+
+    @include breakpoint(medium){
+        padding-top: 170px;
+        padding-bottom: 100px;
+    }
+    @include breakpoint(xlarge){
+        padding-top: 105px;
+        padding-bottom: 120px;
+    }
+}
+
+
+.breadcrumb-title{
+    font-size: 32px;
+    font-weight: 800;
+    color: $white;
+    margin-bottom: 40px;
+    
+    @include breakpoint(small){
+        font-size: 38px;
+    }
+    @include breakpoint(medium){
+        font-size: 40px;
+    }
+    @include breakpoint(large){
+        font-size: 45px;
+    }
+    @include breakpoint(xlarge){
+        font-size: 50px;
+    }
+    @include breakpoint(xxlarge){
+        font-size: 56px;
+    }
+    @include breakpoint(xxxlarge){
+        font-size: 58px;
+    }
+}
+
+
+.breadcrumb-nav{
+    font-size: 18px;
+    font-weight: 700;
+    display: inline-flex;
+    border: 1px dashed #fff;
+    border-radius: 8px;
+    padding: 13px 25px 13px;
+    line-height: 1;
+    text-transform: capitalize;
+
+    li{
+        margin-right: 45px;
+        color: $colorOrange;
+        position: relative;
+
+        &::after{
+            position: absolute;
+            content: "//";
+            left: calc(100% + 15px);
+            visibility: visible;
+            color: $white;
+        }
+
+        &:last-child{
+            margin-right: 0;
+
+            &::after{
+                visibility: hidden;
+            }
+        }
+
+        a{
+            color: $white;
+            &:hover{
+                color: $colorOrange;
+            }
+        }
+    }
+}

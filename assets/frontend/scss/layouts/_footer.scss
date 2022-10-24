@@ -1,0 +1,248 @@
+/************************************
+* Layouts - Footer
+************************************/
+
+
+// Footer Top
+.footer-top{
+    background: $headingColor;
+    position: relative;
+    overflow: hidden;
+    &::before{
+        position: absolute;
+        content: "";
+        background-image: url("../images/background/footer-shape-1.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 270px;
+        height: 460px;
+        top: -75px;
+        left: -50px;
+    }
+    &::after{
+        position: absolute;
+        content: "";
+        background-image: url("../images/background/footer-shape-2.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 270px;
+        height: 460px;
+        bottom: 0px;
+        right: 0px;
+    }
+
+    &-style-1{
+        padding-top: 130px;
+        padding-bottom: 80px;
+     
+         @include breakpoint(xlarge){
+            padding-top: 150px;
+            padding-bottom: 100px;
+         }
+         @include breakpoint(xxlarge){
+            padding-top: 175px;
+            padding-bottom: 125px;
+         }
+         @include breakpoint(xxlarge){
+            padding-top: 200px;
+            padding-bottom: 150px;
+         }
+    }
+
+    &-style-2{
+        padding-top: 80px;
+        padding-bottom: 80px;
+     
+         @include breakpoint(xlarge){
+            padding-top: 100px;
+            padding-bottom: 100px;
+         }
+         @include breakpoint(xxlarge){
+            padding-top: 125px;
+            padding-bottom: 125px;
+         }
+         @include breakpoint(xxlarge){
+            padding-top: 150px;
+            padding-bottom: 150px;
+         }
+    }
+}
+
+.footer-top-box{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -50px;
+    @include breakpoint(xlarge){
+        flex-direction: row;
+    }
+    .footer-top-left{
+        width: 100%;
+        padding-right: 0;
+        position: relative;
+        @include breakpoint(xlarge){
+            width: 470px;
+            padding-right: 130px;
+        }
+
+        &::after{
+            position: absolute;
+            content: "";
+            height: 100%;
+            width: 2px;
+            background: rgba(249, 249, 250, 0.06);
+            top: 0;
+            left: 100%;
+            display: none;
+            @include breakpoint(xlarge){
+                display: block;
+            }
+    
+        }
+        &::before{
+            position: absolute;
+            content: "";
+            height: 50px;
+            width: 2px;
+            background: $themeColor;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 100%;
+            z-index: 1;
+            display: none;
+            @include breakpoint(xlarge){
+                display: block;
+            }
+        }
+    }
+    
+    .footer-top-right{
+        display: flex;
+        padding-left: 0;
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-between;
+        @include breakpoint(small){
+            width: 100%;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+        @include breakpoint(xlarge){
+            flex-direction: row;
+            padding-left: 130px;
+            justify-content: space-between;
+            width: calc(100% - 470px);
+        }
+    }
+
+    .footer-about{
+        p{
+            color: $white;
+            font-weight: 500;
+        }
+
+        address{
+            font-size: 25px;
+            font-weight: 800;
+            color: $colorOrange;
+        }
+    }
+}
+
+.footer-single-widget{
+    margin-bottom: 50px;
+
+    &:last-child{
+        padding-right: 0;
+    }
+
+    .footer-logo{
+        margin-bottom: 50px;
+        display: block;
+    }
+
+    .footer-title{
+        font-size: 23px;
+        color: $white;
+        margin-bottom: 25px;
+        text-transform: capitalize;
+        font-weight: 800;
+        @include breakpoint(medium){
+            margin-bottom: 35px;
+        }
+        @include breakpoint(large){
+            margin-bottom: 55px;
+        }
+    }
+}
+
+.footer-nav{
+
+    li{
+        display: flex;
+        align-items: center;
+        font-size: 17px;
+        margin-bottom: 12px;
+        font-weight: 500;
+
+        &:last-child{
+            margin-bottom: 0;
+        }
+
+        a{
+            color: $white;
+        }
+
+
+        a:hover{
+            color: $themeColor;
+        }
+    }
+    
+}
+
+
+// Footer Bottom
+.footer-bottom{
+    background: #181c2b;
+    padding: 25px;
+    font-weight: 500;
+}
+
+.copytight-text{
+    color: #7f8084;
+    text-align: center;
+    i{
+        color: $themeColor;
+    }
+     a{
+        color: $white;
+    }
+
+}
+
+.footer-bottom-link{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    li{
+        position: relative;
+        margin-right: 25px;
+        &::after{
+            position: absolute;
+            content: "*";
+            left: calc(100% + 7px);
+            color: #7f8084;
+        }
+
+        &:last-child{
+            margin-right: 0;
+            &::after{
+                display: none;
+            }
+        }
+    }
+    a{
+        color: #7f8084;
+        &:hover{color: $themeColor;}
+    }
+}

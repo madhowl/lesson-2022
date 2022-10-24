@@ -1,0 +1,113 @@
+/***********************************
+* Pages - Contact
+*************************************/
+.contact-box-info-items{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 30px;
+
+    @include breakpoint(medium){
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakpoint(xlarge){
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.contact-box-info-single-item{
+    border: 1px solid #eaeef4;
+    border-radius: 10px;
+    background: $white;
+    padding: 38px 40px 45px;
+    transition: $baseTransition;
+    .title{
+        font-size: 30px;
+        font-weight: 800;
+        margin-bottom: 35px;
+        transition: $baseTransition;
+    }
+
+    .contact-box-info-text-single{
+        display: flex;
+        font-size: 17px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: $bodyColor;
+        transition: $baseTransition;
+        &:last-child{margin-bottom: 0;}
+
+        .icon{
+            width: 35px;
+            height: 35px;
+            display: inline-block;
+            line-height: 35px;
+            text-align: center;
+            border-radius: 50%;
+            background: rgba($themeColor, .08);
+            color: $themeColor;
+            transition: $baseTransition;
+            position: relative;
+            z-index: 1;
+            &::after{
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                top: 0;
+                left: 0;
+                background: $theme-linearGradient;
+                z-index: -1;
+                transition: $baseTransition;
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        p{
+            width: calc(100% - 55px);
+            padding-left: 20px;
+        }
+
+        &:hover{
+            color: $white;
+            .icon{
+                color: $white;
+                &::after{
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    &:hover{
+        background: $headingColor;
+        .title{
+            color: $white;
+        }
+    }
+}
+
+.map-wrapper{
+    height: 360px;
+
+    @include breakpoint(medium){
+        height: 400px;
+    }
+    @include breakpoint(large){
+        height: 500px;
+    }
+    @include breakpoint(xxlarge){
+        height: 620px;
+    }
+    .gmap-box{
+        height: 100%;
+        width: 100%;
+
+        iframe{
+            height: 100%;
+            width: 100%;
+        }
+    }
+}

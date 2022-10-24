@@ -1,0 +1,166 @@
+/*Buttion CSS*/
+@keyframes MoveScaleUpInitial {
+	to {
+		transform: translate3d(0, -105%, 0) scale3d(1, 2, 1);
+		opacity: 0;
+	}
+}
+
+@keyframes MoveScaleUpEnd {
+	from {
+		transform: translate3d(0, 100%, 0) scale3d(1, 2, 1);
+		opacity: 0;
+	}
+
+	to {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+}
+
+@keyframes btnGradedientAnimate {
+	0% {
+		background-position: 0%;
+	  }
+	  100% {
+		background-position: 400%;
+	  }
+}
+
+.btn {
+	font-size: 18px;
+	font-weight: 700;
+	transition: $baseTransition;
+	position: relative;
+	overflow: hidden;
+	text-transform: capitalize;
+	border: none;
+
+	&:focus {
+		box-shadow: none !important;
+	}
+
+	&-sm {
+		border-radius: 15px;
+		padding: 15px 40px;
+	}
+
+	&-md {
+		border-radius: 15px;
+		padding: 22.5px 40px;
+	}
+
+	&-lg {
+		font-size: 16px;
+    	padding: 15px 30px;
+		@include breakpoint(medium){
+			font-size: 18px;
+			padding: 18px 40px;
+		}
+		@include breakpoint(xlarge){
+			font-size: 18px;
+			padding: 19.5px 40px;
+		}
+		
+	}
+
+	&-default {
+		border-radius: 34px;
+		color: $white;
+		z-index: 1;
+		background-image: $theme-linearGradient;
+		background-size: cover;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: -1;
+			background-image: $theme-linearGradient;
+			background-size: 400%;
+			border-radius: 34px;
+			opacity: 0;
+			transition: .5s;
+		}
+
+		&:hover {
+			color: $white;
+			&::before {
+				filter: blur(20px);
+				opacity: .8;
+				animation: btnGradedientAnimate 8s linear infinite reverse;
+			  }
+		  }
+	}
+
+	&-default-alt {
+		border-radius: 32.5px;
+		color: $headingColor;
+		z-index: 1;
+		background: $white;
+		background-size: 101%;
+		border: 1px solid $white;
+
+		&:hover{
+			color: $white;
+			background: transparent;
+		}
+	}
+
+	&-default-outline {
+		border: 1px solid #e0e3e7;
+		border-radius: 32.5px;
+		color: #000c3a;
+		z-index: 1;
+		background-size: 101%;
+		background: transparent;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: -1;
+			background: $theme-linearGradient;
+			background-size: 400%;
+			border-radius: 32.5px;
+			opacity: 0;
+			transition: .5s;
+		}
+
+		&:hover {
+			background: $theme-linearGradient;
+			color: $white;
+			&::before {
+				filter: blur(20px);
+				opacity: .8;
+				animation: btnGradedientAnimate 8s linear infinite reverse;
+			  }
+		  }
+	}
+
+	// &-default-outline-alt {
+
+	// }
+
+	&.icon-left i{
+		padding-right: 10px;
+	}
+	&.icon-right i{
+		padding-left: 10px;
+	}
+	
+	&-section-bottom{
+		margin-top: 40px;
+		@include breakpoint(medium){
+			margin-top: 60px;
+		}
+		@include breakpoint(large){
+			margin-top: 80px;
+		}
+	}
+}

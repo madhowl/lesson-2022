@@ -1,0 +1,129 @@
+/*Utilities CSS*/
+.mb-n20{
+  margin-bottom: -20px
+}
+
+.mb-20{
+  margin-bottom: 20px
+}
+.mb-n25{
+  margin-bottom: -25px
+}
+
+.mb-25{
+  margin-bottom: 25px
+}
+
+.mb-n30{
+  margin-bottom: -30px
+}
+
+.mb-30{
+  margin-bottom: 30px
+}
+
+.mb-n40{
+  margin-bottom: -40px
+}
+
+.mb-40{
+  margin-bottom: 40px
+}
+
+.mb-n50{
+  margin-bottom: -50px
+}
+
+.mb-50{
+  margin-bottom: 50px
+}
+
+.mb-n60{
+  margin-bottom: -60px
+}
+
+.mb-60{
+  margin-bottom: 60px
+}
+
+
+.mt-80{
+  margin-top: 80px;
+}
+
+.mt-90{
+  margin-top: 90px;
+}
+
+
+.icon-text-left{
+    i{padding-left: 7px;}
+}
+.icon-text-right{
+    i{padding-right: 7px;}
+}
+
+.container-border-radius{
+    border-radius: 15px;
+}
+
+.icon-space-left{
+    i{padding-left: 15px;}
+}
+.icon-space-right{
+    i{padding-right: 15px;}
+}
+
+.review-star{
+  display: flex;
+  justify-content: center;
+    li{
+        font-size: 20px;
+        margin-right: 10px;
+        &:last-child{margin-right: 0;}
+        &.fill{color: #ffb400;}
+        &.blank{color: #e1e1e1}
+    }
+}
+
+.img-responsive{
+    width: 100%;
+    height: auto;
+    img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+}
+
+.pos-relative{
+    position: relative;
+}
+
+.pos-absolute{
+    position: absolute;
+}
+
+.img-hover-zoom{
+    overflow: hidden;
+    img{
+        transform: scale(1);
+        transition: $baseTransition;
+        &:hover{
+            transform: scale(1.03);
+        }
+    }
+}
+
+.nice-select .list{
+    left: auto;
+    right: 0;
+}
+
+
+.theme-bg{
+  background: $themeColor;
+}
+.gray-bg{
+  background: $colorGray-2;
+}

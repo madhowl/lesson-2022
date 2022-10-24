@@ -1,0 +1,100 @@
+/*Animation CSS*/
+
+@keyframes animate-top-bottom {
+  0%{
+    transform: translateY(30px);
+  }
+  50%{
+    transform: translateY(0px);
+  }
+  100%{
+    transform: translateY(-30px);
+  }
+}
+
+.animate-top-bottom{
+  animation-name: animate-top-bottom;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
+  animation-direction: alternate;
+}
+
+@keyframes animate-left-right {
+  0%{
+    transform: translateX(30px);
+  }
+  50%{
+    transform: translateX(0px);
+  }
+  100%{
+    transform: translateX(-30px);
+  }
+}
+
+.animate-left-right{
+  animation-name: animate-left-right;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
+  animation-direction: alternate;
+}
+
+@keyframes animate-zoom-in-out {
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(.95);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+.animate-zoom-in-out{
+  animation-name: animate-zoom-in-out;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
+  animation-direction: alternate;
+}
+
+
+@keyframes wave-animate{
+  0%{
+    opacity: 1;
+    transform: scale(.8);
+
+  }
+  100%{
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+
+.wave-animate{
+  animation-name: wave-animate;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: backwards;
+  animation-direction: alternate;
+}
+
+
+@keyframes fadeInDown {
+  0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+  }
+  to {
+      opacity: 1;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+  }
+}

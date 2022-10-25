@@ -12,8 +12,13 @@ class FrontEndView extends Core\CoreView
         parent::__construct($path);
     }
 
-    public function index()
+    public function article()
     {
-        echo $this->twig->render('frontend/index.twig');
+        echo $this->twig->render('article.twig');
     }
+    public function articleList()
+    {
+        echo $this->twig->render('articles-list.twig');
+    }
+
 }

@@ -40,7 +40,7 @@ class TodoView
     public function showIndexTwig($work_list)
     {
         echo $this->twig->render(
-            'index.twig',
+            'article.twig',
             [
                 'title' => 'Добавит новое задание',
                 'action' => 'add',

@@ -1,0 +1,30 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <div class="blog-section section-top-gap-150">
+        <div class="box-wrapper">
+            <div class="blog-list-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="custome-container-with-sidebar d-flex flex-column-reverse flex-lg-row-reverse">
+                                <div class="container-width-37 sidebar-rightside">
+                                    {% include('partials/sidebar-wrapper.twig')%}
+                                </div>
+                                <div class="container-width-63">
+                                    <!-- Start Article List Item -->
+                                    {% include('partials/articles-list-items.twig')%}
+                                    <!-- End Article List Item -->
+
+                                    <!-- Start Page Pagination -->
+                                    {% include('partials/page-pagination.twig')%}
+                                    <!-- Start Page Pagination -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

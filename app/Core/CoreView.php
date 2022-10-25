@@ -4,7 +4,7 @@
 namespace App\Core;
 
 
-abstract class CoreView
+abstract class CoreView implements ViewInterface
 {
     /**
      * @var \Twig\Loader\FilesystemLoader
@@ -21,7 +21,7 @@ abstract class CoreView
      */
     public function __construct($path = 'templates/')
     {
-        $this->loader = new \Twig\Loader\FilesystemLoader('templates/');
+        $this->loader = new \Twig\Loader\FilesystemLoader($path);
         $this->twig = new \Twig\Environment($this->loader, [
 
         ]);

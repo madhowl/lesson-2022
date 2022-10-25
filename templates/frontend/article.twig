@@ -1,4 +1,4 @@
-{% extends "frontend/layout.twig" %}
+{% extends "layout.twig" %}
 
 
 {% block content %}
@@ -10,66 +10,16 @@
                         <div class="col-12">
                             <div class="custome-container-with-sidebar d-flex flex-column-reverse flex-lg-row-reverse">
                                 <div class="container-width-37 sidebar-rightside">
-                                    <div class="sidebar-wrapper">
-                                        <!-- Start Sidebar Widget Single Item - Search -->
-                                        <div class="sidebar-widget-singel-item widget-box-bg gray-bg">
-                                            <h4 class="title">Search</h4>
-                                            <form class="widget-search" action="#" method="post">
-                                                <input type="search" placeholder="Search here" required>
-                                                <button type="submit"><i class="icofont-search-1"></i></button>
-                                            </form>
-                                        </div>
-                                        <!-- End Sidebar Widget Single Item - Search -->
-
-                                        <!-- Start Sidebar Widget Single Item - Service Catagory -->
-                                        <div class="sidebar-widget-singel-item widget-box-bg gray-bg">
-                                            <h4 class="title">Category</h4>
-                                            <ul class="widget-catagory">
-                                                <li><a href=""><i class="icofont-double-right"></i>Creative Solution</a></li>
-                                                <li><a href=""><i class="icofont-double-right"></i>Website Development</a></li>
-                                                <li><a href=""><i class="icofont-double-right"></i>Product Development</a></li>
-                                                <li><a href=""><i class="icofont-double-right"></i>Data Visualization</a></li>
-                                            </ul>
-                                        </div>
-                                        <!-- End Sidebar Widget Single Item - Service Catagory -->
-
-                                        <!-- Start Sidebar Widget Single Item - Side Banner -->
-                                        <div class="sidebar-widget-singel-item sidebar-banner">
-                                            <div class="image text-center">
-                                                <img class="img-fluid" src="assets/frontend/images/background/banner-img-1.png" alt="">
-                                            </div>
-                                            <div class="d-flex justify-content-center">
-                                                <a href="contact.html" class="btn btn-lg btn-default-alt icon-right">Get Started <i class="icofont-double-right"></i></a>
-                                            </div>
-                                        </div>
-                                        <!-- ENd Sidebar Widget Single Item - Side Banner -->
-
-                                        <!-- Start Sidebar Widget Single Item - Tags -->
-                                        <div class="sidebar-widget-singel-item widget-box-bg">
-                                            <h4 class="title">popular tags</h4>
-                                            <ul class="widget-tags">
-                                                <li><a href="">Agency</a></li>
-                                                <li><a href="">Company</a></li>
-                                                <li><a href="">Business</a></li>
-                                                <li><a href="">Startup</a></li>
-                                                <li><a href="">Marketing</a></li>
-                                                <li><a href="">Cleaner</a></li>
-                                                <li><a href="">Corporate</a></li>
-                                                <li><a href="">Brand</a></li>
-
-                                            </ul>
-                                        </div>
-                                        <!-- End Sidebar Widget Single Item - Tags -->
-                                    </div>
+                                    {% include('partials/sidebar-wrapper.twig')%}
                                 </div>
                                 <div class="container-width-63">
-                                    <!-- ...::: Start Blog Details Section :::... -->
+                                    <!-- ...::: Start Article Details Section :::... -->
                                     <div class="blog-details-section">
                                         <div class="box-wrapper">
                                             <div class="blog-details-wrapper">
                                                 <div class="container">
                                                     <div class="row">
-                                                        <!-- Start Blog Details Top Area -->
+                                                        <!-- Start Article Details Top Area -->
                                                         <div class="col-12">
                                                             <div class="blog-details-top text-center">
                                                                 <div class="post-meata">
@@ -87,17 +37,17 @@
                                                                 </ul>
                                                             </div>
                                                         </div>
-                                                        <!-- End Blog Details Top Area -->
+                                                        <!-- End Article Details Top Area -->
 
-                                                        <!-- Start Blog Details Hero Image -->
+                                                        <!-- Start Article Details Hero Image -->
                                                         <div class="col-12">
                                                             <div class="blog-details-hero-image mb-20">
                                                                 <img class="img-fluid" src="assets/frontend/images/blog/blog-details/blog-details-hero-img.jpg" alt="">
                                                             </div>
                                                         </div>
-                                                        <!-- End Blog Details Hero Image -->
+                                                        <!-- End Article Details Hero Image -->
 
-                                                        <!-- Start Blog Details Content -->
+                                                        <!-- Start Article Details Content -->
                                                         <div class="col-12">
                                                             <div class="blog-details-content-wrapper default-text-content">
                                                                 <h4 class="subtitle">Make your store stand out from the others by converting more shoppers
@@ -185,9 +135,9 @@
                                                                     specimen book. It has survived nots only five centuries, but also the leap into.</p>
                                                             </div>
                                                         </div>
-                                                        <!-- ENd Blog Details Content -->
+                                                        <!-- End Article Details Content -->
 
-                                                        <!-- Start Blog  Share -->
+                                                        <!-- Start Article  Share -->
                                                         <div class="col-12">
                                                             <div class="blog-share ">
                                                                 <div class="text">Share this article:</div>
@@ -199,15 +149,15 @@
                                                                 </ul>
                                                             </div>
                                                         </div>
-                                                        <!-- End Blog  Share -->
+                                                        <!-- End Article  Share -->
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- ...::: End Blog Details Section :::... -->
+                                    <!-- ...::: End Article Details Section :::... -->
 
-                                    <!-- ...::: Start Blog Feed Display Section :::... -->
+                                    <!-- ...::: Start Article Feed Display Section :::... -->
                                     <div class="blog-feed-display-section mt-80 section-inner-bg section-inner-padding-80">
                                         <div class="box-wrapper">
                                             <!-- Start Section Warpper -->
@@ -229,19 +179,19 @@
                                                 </div>
                                             </div>
                                             <!-- End Section Warpper -->
-                                            <!-- Start Blog Feed Wrapper -->
+                                            <!-- Start Article Feed Wrapper -->
                                             <div class="blog-feed-wrapper">
                                                 <div class="container">
                                                     <div class="row">
                                                         <div class="col-12">
-                                                            <!-- Start Blog Feed Slider -->
+                                                            <!-- Start Article Feed Slider -->
                                                             <div class="blog-feed-slider blog-feed-slider-style-2">
                                                                 <!-- Slider main container -->
                                                                 <div class="swiper-container">
                                                                     <!-- Additional required wrapper -->
                                                                     <div class="swiper-wrapper">
                                                                         <!-- Slides -->
-                                                                        <!-- Start Blog List Single Item -->
+                                                                        <!-- Start Article List Single Item -->
                                                                         <div class="blog-list-single-item swiper-slide">
                                                                             <a href="blog-details-full-width.html" class="image"><img src="assets/frontend/images/blog/blog-list/blog-list-single-item-img-1.jpg" alt=""></a>
                                                                             <div class="content">
@@ -254,8 +204,8 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <!-- End Blog List Single Item -->
-                                                                        <!-- Start Blog List Single Item -->
+                                                                        <!-- End Article List Single Item -->
+                                                                        <!-- Start Article List Single Item -->
                                                                         <div class="blog-list-single-item swiper-slide">
                                                                             <a href="blog-details-full-width.html" class="image"><img src="assets/frontend/images/blog/blog-list/blog-list-single-item-img-2.jpg" alt=""></a>
                                                                             <div class="content">
@@ -269,8 +219,8 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <!-- End Blog List Single Item -->
-                                                                        <!-- Start Blog List Single Item -->
+                                                                        <!-- End Article List Single Item -->
+                                                                        <!-- Start Article List Single Item -->
                                                                         <div class="blog-list-single-item swiper-slide">
                                                                             <a href="blog-details-full-width.html" class="image"><img src="assets/frontend/images/blog/blog-list/blog-list-single-item-img-3.jpg" alt=""></a>
                                                                             <div class="content">
@@ -283,8 +233,8 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <!-- End Blog List Single Item -->
-                                                                        <!-- Start Blog List Single Item -->
+                                                                        <!-- End Article List Single Item -->
+                                                                        <!-- Start Article List Single Item -->
                                                                         <div class="blog-list-single-item swiper-slide">
                                                                             <a href="blog-details-full-width.html" class="image"><img src="assets/frontend/images/blog/blog-list/blog-list-single-item-img-4.jpg" alt=""></a>
                                                                             <div class="content">
@@ -298,8 +248,8 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <!-- End Blog List Single Item -->
-                                                                        <!-- Start Blog List Single Item -->
+                                                                        <!-- End Article List Single Item -->
+                                                                        <!-- Start Article List Single Item -->
                                                                         <div class="blog-list-single-item swiper-slide">
                                                                             <a href="blog-details-full-width.html" class="image"><img src="assets/frontend/images/blog/blog-list/blog-list-single-item-img-5.jpg" alt=""></a>
                                                                             <div class="content">
@@ -312,8 +262,8 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <!-- End Blog List Single Item -->
-                                                                        <!-- Start Blog List Single Item -->
+                                                                        <!-- End Article List Single Item -->
+                                                                        <!-- Start Article List Single Item -->
                                                                         <div class="blog-list-single-item swiper-slide">
                                                                             <a href="blog-details-full-width.html" class="image"><img src="assets/frontend/images/blog/blog-list/blog-list-single-item-img-6.jpg" alt=""></a>
                                                                             <div class="content">
@@ -325,21 +275,21 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <!-- End Blog List Single Item -->
+                                                                        <!-- End Article List Single Item -->
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <!-- End Blog Feed Slider -->
+                                                            <!-- End Article Feed Slider -->
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- End Blog Feed Wrapper -->
+                                            <!-- End Article Feed Wrapper -->
                                         </div>
                                     </div>
-                                    <!-- ...::: End Blog Feed Display Section :::... -->
+                                    <!-- ...::: End Article Feed Display Section :::... -->
 
-                                    <!-- ...::: Start Blog Comment Section :::... -->
+                                    <!-- ...::: Start Article Comment Section :::... -->
                                     <div class="blog-comment-section section-top-gap-100">
                                         <div class="box-wrappper">
                                             <!-- Start Comment Wrapper -->
@@ -449,9 +399,9 @@
                                             <!-- End Comment Wrapper -->
                                         </div>
                                     </div>
-                                    <!-- ...::: End Blog Comment Section :::... -->
+                                    <!-- ...::: End Article Comment Section :::... -->
 
-                                    <!-- ...::: Start Blog Comment Section :::... -->
+                                    <!-- ...::: Start Article Comment Section :::... -->
                                     <div class="blog-form-section section-top-gap-70">
                                         <div class="box-wrappper">
                                             <!-- Start Comment Wrapper -->
@@ -491,7 +441,7 @@
                                             <!-- End Comment Wrapper -->
                                         </div>
                                     </div>
-                                    <!-- ...::: End Blog Comment Section :::... -->
+                                    <!-- ...::: End Article Comment Section :::... -->
                                 </div>
                             </div>
                         </div>

@@ -10,20 +10,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- ::::::::::::::Favicon icon::::::::::::::-->
-    <link rel="shortcut icon" href="assets/frontend/images/favicon.ico" type="image/png">
+    <link rel="shortcut icon" href="/assets/frontend/images/favicon.ico" type="image/png">
 
     <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
     <!-- Vendor CSS -->
-    <link rel="stylesheet" href="assets/frontend/css/vendor/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/frontend/css/vendor/icofont.min.css" />
-    <link rel="stylesheet" href="assets/frontend/css/vendor/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/frontend/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/frontend/css/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/frontend/css/vendor/jquery-ui.min.css">
 
     <!-- Plugin CSS -->
-    <link rel="stylesheet" href="assets/frontend/css/plugins/animate.min.css">
-    <link rel="stylesheet" href="assets/frontend/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/frontend/css/plugins/animate.min.css">
+    <link rel="stylesheet" href="/assets/frontend/css/plugins/swiper-bundle.min.css">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="assets/frontend/css/style.css">
+    <link rel="stylesheet" href="/assets/frontend/css/style.css">
 
 </head>
 
@@ -31,16 +31,16 @@
 
 <main class="main-wrapper">
     <!-- .....:::::: Start Header Section :::::.... -->
-    {{ include('frontend/partials/header.twig') }}
+    {{ include('partials/header.twig') }}
     <!-- .....:::::: End Header Section :::::.... -->
 
     <!-- .....:::::: Start Mobile Header Section :::::.... -->
-    {{ include('frontend/partials/mobile-header.twig') }}
+    {{ include('partials/mobile-header.twig') }}
 
     <!-- .....:::::: End MobileHeader Section :::::.... -->
 
     <!--  .....::::: Start Offcanvas Mobile Menu Section :::::.... -->
-    {{ include('frontend/partials/offcanvas.twig') }}
+    {{ include('partials/offcanvas.twig') }}
 
     <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
 
@@ -48,7 +48,7 @@
     <div class="offcanvas-overlay"></div>
 
     <!-- ...::: Start Breadcrumb Section :::... -->
-    {{ include('frontend/partials/breadcrumb.twig') }}
+    {{ include('partials/breadcrumb.twig') }}
     <!-- ...::: End Breadcrumb Section :::... -->
 
     <!-- ...::: Start Blog Section :::... -->
@@ -61,21 +61,7 @@
     <!-- ...::: End Blog Section :::... -->
 
     <!-- Start Subscribe Banner -->
-    <div class="subscribe-banner section-top-gap-150">
-        <div class="container">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-lg-6 col-xl-6">
-                    <div class="content">
-                        <h6 class="big-text">Stay connect with us, get daily & weekly update.</h6>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <a href="contact.html" class="btn btn-lg btn-default icon-right">Subscribe Now <i
-                                class="icofont-double-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{ include('partials/subscribe-banner.twig') }}
     <!-- End Subscribe Banner -->
 
     <!-- ...::: Start Footer Section :::... -->
@@ -174,23 +160,23 @@
 
 <!-- ::::::::::::::All JS Files here :::::::::::::: -->
 <!-- Global Vendor -->
-<script src="assets/frontend/js/vendor/modernizr-3.11.2.min.js"></script>
-<script src="assets/frontend/js/vendor/jquery-3.6.0.min.js"></script>
-<script src="assets/frontend/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-<script src="assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
-<script src="assets/frontend/js/vendor/jquery-ui.min.js"></script>
+<script src="/assets/frontend/js/vendor/modernizr-3.11.2.min.js"></script>
+<script src="/assets/frontend/js/vendor/jquery-3.6.0.min.js"></script>
+<script src="/assets/frontend/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+<script src="/assets/frontend/js/vendor/bootstrap.bundle.min.js"></script>
+<script src="/assets/frontend/js/vendor/jquery-ui.min.js"></script>
 
 <!--Plugins JS-->
-<script src="assets/frontend/js/plugins/swiper-bundle.min.js"></script>
-<script src="assets/frontend/js/plugins/jquery.waypoints.js"></script>
-<script src="assets/frontend/js/plugins/counter.js"></script>
-<script src="assets/frontend/js/plugins/images-loaded.min.js"></script>
-<script src="assets/frontend/js/plugins/isotope.pkgd.min.js"></script>
-<script src="assets/frontend/js/plugins/ajax-mail.js"></script>
-<script src="assets/frontend/js/plugins/material-scrolltop.js"></script>
+<script src="/assets/frontend/js/plugins/swiper-bundle.min.js"></script>
+<script src="/assets/frontend/js/plugins/jquery.waypoints.js"></script>
+<script src="/assets/frontend/js/plugins/counter.js"></script>
+<script src="/assets/frontend/js/plugins/images-loaded.min.js"></script>
+<script src="/assets/frontend/js/plugins/isotope.pkgd.min.js"></script>
+<script src="/assets/frontend/js/plugins/ajax-mail.js"></script>
+<script src="/assets/frontend/js/plugins/material-scrolltop.js"></script>
 
 <!--Main JS (Common Activation Codes)-->
-<script src="assets/frontend/js/main.js"></script>
+<script src="/assets/frontend/js/main.js"></script>
 
 </body>
 

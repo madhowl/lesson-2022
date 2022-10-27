@@ -4,18 +4,18 @@
 namespace App;
 
 
-use App\Core\ModelInterface;
-use App\Core\ViewInterface;
+use App\Core\CoreModel;
 
-class FrontEndController extends Core\CoreController
+class FrontEndController
 {
-    private ModelInterface $Model;
+    private  $Model;
 
-    private ViewInterface $View;
+    private  $View;
 
-    public function __construct(ModelInterface $Model, ViewInterface $View)
+    public function __construct( $Model, FrontEndView $View)
     {
-        parent::__construct($Model, $View);
+        $this->Model = $Model;
+        $this->View = $View;
     }
 
     public function test()

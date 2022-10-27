@@ -6,12 +6,11 @@ error_reporting(E_ALL);
 
 
 use NoahBuscher\Macaw\Macaw;
-$container = new DI\Container();
 
-dd($container->get(\App\FrontEndController::class));
 
 Macaw::get('/', 'App\FrontEndView@articleList');
 Macaw::get('/article/(:num)', 'App\FrontEndView@article');
+Macaw::get('/admin', 'App\BackEndView@index');
 
 
 

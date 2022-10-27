@@ -18,9 +18,9 @@ abstract class CoreModel implements ModelInterface
     /**
      * TodoModel constructor.
      */
-    public function __construct($tableName)
+    public function __construct(\PDO $PDO,$tableName)
     {
-        self::$dbh = new PDO('mysql:host=localhost;dbname=todo', 'admin', 'admin');
+        //self::$dbh = new PDO('mysql:host=localhost;dbname=todo', 'admin', 'admin');
         self::$tableName = $tableName;
     }
 

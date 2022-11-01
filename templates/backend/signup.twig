@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--favicon-->
+	<link rel="icon" href="/assets/backend/images/favicon-32x32.png" type="image/png" />
+	<!--plugins-->
+	<link href="/assets/backend/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+	<link href="/assets/backend/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+	<link href="/assets/backend/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+	<!-- loader-->
+	<link href="/assets/backend/css/pace.min.css" rel="stylesheet" />
+	<script src="/assets/backend/js/pace.min.js"></script>
+	<!-- Bootstrap CSS -->
+	<link href="/assets/backend/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/backend/css/app.css" rel="stylesheet">
+	<link href="/assets/backend/css/icons.css" rel="stylesheet">
+	<title>Dashkote - Bootstrap5 Admin Template</title>
+</head>
+
+<body class="bg-login">
+	<!--wrapper-->
+	<div class="wrapper">
+		<div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0">
+			<div class="container-fluid">
+				<div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+					<div class="col mx-auto">
+						<div class="mb-4 text-center">
+							<img src="/assets/backend/images/logo.svg" width="180"  alt="" />
+						</div>
+						<div class="card">
+							<div class="card-body">
+								<div class="border p-4 rounded">
+									<div class="text-center">
+										<h3 class="">Регистрация</h3>
+									</div>
+
+									<div class="login-separater text-center mb-4">
+										<hr/>
+									</div>
+									<div class="form-body">
+										<form action="/signup" method="post" class="row g-3">
+											<div class="col-md-12">
+												<label for="inputLastName1" class="form-label">Имя Пользователя</label>
+												<div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
+													<input type="text" class="form-control border-start-0" id="inputLastName1" placeholder="Имя Пользователя" name="username" />
+												</div>
+											</div>
+											<div class="col-12">
+												<label for="inputEmailAddress" class="form-label">Введите Email</label>
+												<div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-message' ></i></span>
+													<input type="email" class="form-control border-start-0" id="inputEmailAddress" placeholder="Email Address" name="email"/>
+												</div>
+											</div>
+											<div class="col-12">
+												<label for="inputChoosePassword" class="form-label">Введите Пароль</label>
+												<div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-lock-open' ></i></span>
+													<input type="password" class="form-control border-start-0" id="inputChoosePassword" placeholder="Введите Пароль" name="password"/>
+												</div>
+											</div>
+											<div class="col-12">
+												<label for="inputConfirmPassword" class="form-label">Подтвердите Пароль</label>
+												<div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-lock' ></i></span>
+													<input type="password" class="form-control border-start-0" id="inputConfirmPassword" placeholder="Подтвердите Пароль"  name="confirm-password"/>
+												</div>
+											</div>
+											<div class="col-md-12 text-end">	<p> <a href="/signin">Я уже зарегистрирован</a>
+												</p>
+											</div>
+											<div class="col-12">
+												<div class="d-grid">
+													<button type="submit" class="btn btn-primary"><i class="bx bxs-lock-open"></i>Войти</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end row-->
+			</div>
+		</div>
+	</div>
+	<!--end wrapper-->
+	<!-- Bootstrap JS -->
+	<script src="/assets/backend/js/bootstrap.bundle.min.js"></script>
+	<!--plugins-->
+	<script src="/assets/backend/js/jquery.min.js"></script>
+	<script src="/assets/backend/plugins/simplebar/js/simplebar.min.js"></script>
+	<script src="/assets/backend/plugins/metismenu/js/metisMenu.min.js"></script>
+	<script src="/assets/backend/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+	<!--Password show & hide js -->
+	<script>
+		$(document).ready(function () {
+			$("#show_hide_password a").on('click', function (event) {
+				event.preventDefault();
+				if ($('#show_hide_password input').attr("type") == "text") {
+					$('#show_hide_password input').attr('type', 'password');
+					$('#show_hide_password i').addClass("bx-hide");
+					$('#show_hide_password i').removeClass("bx-show");
+				} else if ($('#show_hide_password input').attr("type") == "password") {
+					$('#show_hide_password input').attr('type', 'text');
+					$('#show_hide_password i').removeClass("bx-hide");
+					$('#show_hide_password i').addClass("bx-show");
+				}
+			});
+		});
+	</script>
+	<!--app JS-->
+	<script src="/assets/backend/js/app.js"></script>
+</body>
+
+</html>

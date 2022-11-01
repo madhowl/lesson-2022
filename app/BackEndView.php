@@ -17,4 +17,14 @@ class BackEndView extends Core\CoreView
         echo $this->twig->render('index.twig');
     }
 
+    public function showSignInForm()
+    {
+        echo $this->twig->render('signin.twig');
+    }
+
+    public function showSignUpForm()
+    {
+        echo $this->twig->render('signup.twig');
+    }
+
 }

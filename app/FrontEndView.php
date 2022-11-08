@@ -4,21 +4,22 @@
 namespace App;
 
 
-class FrontEndView extends Core\CoreView
+class FrontEndView
 {
+    public $twig;
 
-    public function __construct($path = 'templates/frontend/')
+    public function __construct($twig)
     {
-        parent::__construct($path);
+        $this->twig = $twig;
     }
 
     public function article()
     {
-        echo $this->twig->render('article.twig');
+        return $this->twig->render('article.twig');
     }
     public function articleList()
     {
-        echo $this->twig->render('articles-list.twig');
+        return $this->twig->render('articles-list.twig');
     }
 
 }

@@ -4,22 +4,31 @@
 namespace App;
 
 
-use App\Core\CoreModel;
+use Laminas\Diactoros\Response;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Scrawler\Arca\Database;
 
 class FrontEndController
 {
-    private  $Model;
+    private Database $Model;
+    private  FrontEndView $View;
+    private Response $Response;
 
-    private  $View;
-
-    public function __construct( $Model, FrontEndView $View)
+    public function __construct( Database $Model, FrontEndView $View)
     {
         $this->Model = $Model;
         $this->View = $View;
     }
 
-    public function test()
+    public function index(ServerRequestInterface $request): ResponseInterface
     {
-        dd($this->View);
+        //$articles = $this->Model->get('articles');
+        //$articles = $articles->toString();
+
+        $articles = $this->View->articleList();
+       $response = new Response;
+        $response->getBody()->write($articles);
+        return $response;
     }
 }

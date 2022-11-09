@@ -23,7 +23,7 @@ $container->add('FrontTwigLoader',\Twig\Loader\FilesystemLoader::class)
 
 $container->add('FrontTwig',\Twig\Environment::class)
     ->addArgument($container->get('FrontTwigLoader'))
-    ->addArgument([]);
+    ->addArgument(['debug' => true]);
 
 $container->add(\App\FrontEndView::class)
     ->addArgument(
@@ -38,11 +38,11 @@ $container->add(\App\FrontEndController::class)
 
 // Backend template init
 $container->add('BackTwigLoader',\Twig\Loader\FilesystemLoader::class)
-    ->addArgument('templates/frontend');
+    ->addArgument('templates/backend');
 
 $container->add('BackTwig',\Twig\Environment::class)
     ->addArgument($container->get('BackTwigLoader'))
-    ->addArgument([]);
+    ->addArgument(['debug' => true]);
 
 $container->add(\App\BackEndView::class)
     ->addArgument(

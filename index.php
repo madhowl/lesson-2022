@@ -17,7 +17,12 @@ $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
 );
 
 $router->map('GET', '/', 'App\FrontEndController::index');
-$router->map('GET', '/a/{id:number}', 'App\FrontEndController::index');
+$router->map('GET', '/article/{id:number}', 'App\FrontEndController::article');
+
+
+$router->map('GET', '/admin', 'App\BackEndController::index');
+$router->map('GET', '/signin', 'App\BackEndController::showSignInForm');
+$router->map('GET', '/signup', 'App\BackEndController::showSignUpForm');
 
 $response = $router->dispatch($request);
 

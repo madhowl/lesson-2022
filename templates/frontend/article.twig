@@ -2,6 +2,7 @@
 
 
 {% block content %}
+    <h1>{{ title }}</h1>
     <div class="blog-section section-top-gap-150">
         <div class="box-wrapper">
             <div class="blog-list-wrapper">
@@ -23,17 +24,14 @@
                                                         <div class="col-12">
                                                             <div class="blog-details-top text-center">
                                                                 <div class="post-meata">
-                                                                    <span class="author">By<a href="">Harold Leonard </a></span>
-                                                                    <span>03 April, 2021</span>
-                                                                    <span>10 min read</span>
+                                                                    <span class="author">Автор: <a href="">User </a></span>
+                                                                    <span>{{ article.created_at|date('d/m/Y', timezone="Asia/Vladivostok") }}</span>
+                                                                    <span>5 минут на прочтение</span>
                                                                 </div>
-                                                                <h2 class="title">Startup founder, one of your primary
-                                                                    concerns is making a business out of your service</h2>
+                                                                <h2 class="title">{{ article.title }}</h2>
                                                                 <ul class="blog-tag">
-                                                                    <li><a href="">Charity</a></li>
-                                                                    <li><a href="">Human</a></li>
-                                                                    <li><a href="">Animal’s</a></li>
-                                                                    <li><a href="">Forest</a></li>
+                                                                    <li><a href="">Новости</a></li>
+                                                                    <li><a href="">США</a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -42,7 +40,7 @@
                                                         <!-- Start Article Details Hero Image -->
                                                         <div class="col-12">
                                                             <div class="blog-details-hero-image mb-20">
-                                                                <img class="img-fluid" src="/assets/frontend/images/blog/blog-details/blog-details-hero-img.jpg" alt="">
+                                                                <img class="img-fluid" src="{{ article.intro_image }}" alt="">
                                                             </div>
                                                         </div>
                                                         <!-- End Article Details Hero Image -->
@@ -50,89 +48,7 @@
                                                         <!-- Start Article Details Content -->
                                                         <div class="col-12">
                                                             <div class="blog-details-content-wrapper default-text-content">
-                                                                <h4 class="subtitle">Make your store stand out from the others by converting more shoppers
-                                                                    into buyers!</h4>
-                                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry has been industry standard dummy text ever since the 150
-                                                                    a galley of type and scrambe make type specimen book has survived not only five centuries text of the printing and typesetin industry
-                                                                    standard dummy text ever since the 1500s, when an unknown printer.</p>
-
-                                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy tex
-                                                                    ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                                                    only five centuries, but also the leap into electronic typesetting, remaining the essentially unchanged. It was popularised in the 1960s
-                                                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing crambled it to make
-                                                                    specimen book. It has survived nots only five centuries, but also the leap into.</p>
-
-                                                                <h4 class="subtitle">Table of Content:</h4>
-                                                                <ul class="default-item-list">
-                                                                    <li>
-                                                                        <span class="icon"><i class="icofont-double-right"></i></span>
-                                                                        <span class="text">It was popularised in the 1960s with the release of Letraset sheets containing</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <span class="icon"><i class="icofont-double-right"></i></span>
-                                                                        <span class="text">Many desktop publishing packages and web page editors now use</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <span class="icon"><i class="icofont-double-right"></i></span>
-                                                                        <span class="text">It was popularised in the 1960s with the release of Letraset sheets containing</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <span class="icon"><i class="icofont-double-right"></i></span>
-                                                                        <span class="text">Many desktop publishing packages and web page editors now use</span>
-                                                                    </li>
-                                                                    <li>
-                                                                        <span class="icon"><i class="icofont-double-right"></i></span>
-                                                                        <span class="text">It was popularised in the 1960s with the release of Letraset sheets containing</span>
-                                                                    </li>
-                                                                </ul>
-                                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy tex
-                                                                    ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                                                    only five centuries, but also the leap into electronic typesetting, remaining the essentially unchanged. It was popularised in the 1960s
-                                                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing crambled it to make
-                                                                    specimen book. It has survived nots only five centuries, but also the leap into.</p>
-
-                                                                <h4 class="subtitle">Our company fails the real world test in all kinds of ways.</h4>
-                                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy tex
-                                                                    ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                                                    only five centuries, but also the leap into electronic typesetting.</p>
-                                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy tex
-                                                                    ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                                                    only five centuries, but also the leap into electronic typesetting, remaining the essentially unchanged. It was popularised in the 1960s
-                                                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing crambled it to make
-                                                                    specimen book. It has survived nots only five centuries, but also the leap into.</p>
-
-                                                                <div class="default-content-image img-responsive">
-                                                                    <img src="/assets/frontend/images/blog/blog-details/blog-details-content-img.jpg" alt="">
-                                                                </div>
-
-                                                                <h4 class="subtitle">Well, that wasn’t the only unconventional thing 37Signals did on their way up.</h4>
-                                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy tex
-                                                                    ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                                                    only five centuries, but also the leap into electronic typesetting, remaining the essentially unchanged. It was popularised in the 1960s
-                                                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing crambled it to make
-                                                                    specimen book. It has survived nots only five centuries, but also the leap into.</p>
-
-                                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy tex
-                                                                    ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                                                    only five centuries, but also the leap into electronic typesetting, remaining the essentially unchanged. It was popularised in the 1960s
-                                                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing crambled it to make
-                                                                    specimen book. It has survived nots only five centuries, but also the leap into.</p>
-
-                                                                <div class="content-banner">
-                                                                    <strong>2,83k People</strong> Receive Our Weekly WordPress Related Newsletter.
-                                                                </div>
-
-                                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy tex
-                                                                    ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                                                    only five centuries, but also the leap into electronic typesetting, remaining the essentially unchanged. It was popularised in the 1960s
-                                                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing crambled it to make
-                                                                    specimen book. It has survived nots only five centuries, but also the leap into.</p>
-
-                                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy tex
-                                                                    ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                                                    only five centuries, but also the leap into electronic typesetting, remaining the essentially unchanged. It was popularised in the 1960s
-                                                                    the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing crambled it to make
-                                                                    specimen book. It has survived nots only five centuries, but also the leap into.</p>
+                                                               {{ article.content }}
                                                             </div>
                                                         </div>
                                                         <!-- End Article Details Content -->

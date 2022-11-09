@@ -19,16 +19,41 @@ class FrontEndController
     {
         $this->Model = $Model;
         $this->View = $View;
+
+    }
+
+    public function responseWrapper(string $str):ResponseInterface
+    {
+        $response = new Response;
+        $response->getBody()->write($str);
+        return $response;
+
+    }
+
+    public function getAll(string $tablename):array
+    {
+        $all = $this->Model->get($tablename);
+        return $all->toArray();
+    }
+
+    public function getById(string $tablename, int  $id)
+    {
+        $all = $this->Model->get($tablename,$id);
+        return $all->toArray();
     }
 
     public function index(ServerRequestInterface $request): ResponseInterface
     {
-        //$articles = $this->Model->get('articles');
-        //$articles = $articles->toString();
-
-        $articles = $this->View->articleList();
-       $response = new Response;
-        $response->getBody()->write($articles);
-        return $response;
+        $articles = $this->getAll('articles');
+        $categories = $this->getAll('categories');
+        $html = $this->View->articleList($articles, $categories);
+        return $this->responseWrapper($html);
+    }
+    public function article(ServerRequestInterface $request, array $arg): ResponseInterface
+    {
+        $article = $this->getById('articles',$arg['id']);
+        $categories = $this->getAll('categories');
+        $html = $this->View->article($article, $categories);
+        return $this->responseWrapper($html);
     }
 }

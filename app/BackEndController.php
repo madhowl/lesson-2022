@@ -7,40 +7,67 @@ namespace App;
 
 use App\Core\Auth;
 use App\Core\ModelInterface;
-use App\Models\UsersModel;
+
+use Laminas\Diactoros\Response;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Scrawler\Arca\Database;
 
 class BackEndController
 {
 use Auth;
 
-    private  $View;
-    private  ModelInterface $User;
+    private  BackEndView $View;
+    private  Database $Mode;
 
-    /**
-     * TodoController constructor.
-     */
-    public function __construct()
+    public function __construct(Database $Model, BackEndView $View)
     {
-        $this->View = new BackEndView();
-        $this->User = new UsersModel('','');
+        $this->View = $View;
+        $this->Mode = $Model;
 
     }
-    public function showDashboard()
+    public function responseWrapper(string $str):ResponseInterface
+    {
+        $response = new Response;
+        $response->getBody()->write($str);
+        return $response;
+
+    }
+    public function index(ServerRequestInterface $request): ResponseInterface
     {
         if ($this->checkAuth()){
-            $this->View->index();
+            return $this->showDashboard($request);
 
         }else{
-            $this->showSignInForm();
+            return $this->showSignInForm($request);
         }
     }
-    public function showSignInForm()
+
+    public function showDashboard(ServerRequestInterface $request): ResponseInterface
     {
-        $this->View->showSignInForm();
+        $html = $this->View->index();
+//        $response = new Response;
+//        $response->getBody()->write($html);
+//        return $response;
+        return $this->responseWrapper($html);
     }
-    public function showSignUpForm()
+
+    public function showSignInForm(ServerRequestInterface $request): ResponseInterface
     {
-        $this->View->showSignUpForm();
+        $html =$this->View->showSignInForm();
+//        $response = new Response;
+//        $response->getBody()->write($html);
+//        return $response;
+        return $this->responseWrapper($html);
+    }
+
+    public function showSignUpForm(ServerRequestInterface $request): ResponseInterface
+    {
+        $html = $this->View->showSignUpForm();
+//        $response = new Response;
+//        $response->getBody()->write($html);
+//        return $response;
+        return $this->responseWrapper($html);
     }
 
 }

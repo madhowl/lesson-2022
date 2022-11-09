@@ -13,13 +13,14 @@ class FrontEndView
         $this->twig = $twig;
     }
 
-    public function article()
+    public function article($article, $categories)
     {
-        return $this->twig->render('article.twig');
+        return $this->twig->render('article.twig', ['article' => $article,'categories'=>$categories  ]);
     }
-    public function articleList()
+
+    public function articleList($articles, $categories)
     {
-        return $this->twig->render('articles-list.twig');
+        return $this->twig->render('articles-list.twig',['articles' => $articles,'categories'=>$categories ]);
     }
 
 }

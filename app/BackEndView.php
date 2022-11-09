@@ -5,26 +5,28 @@ declare(strict_types=1);
 namespace App;
 
 
-class BackEndView extends Core\CoreView
+class BackEndView
 {
-    public function __construct($path = 'templates/backend/')
+    public $twig;
+
+    public function __construct($twig)
     {
-        parent::__construct($path);
+        $this->twig = $twig;
     }
 
     public function index()
     {
-        echo $this->twig->render('index.twig');
+        return $this->twig->render('index.twig');
     }
 
     public function showSignInForm()
     {
-        echo $this->twig->render('signin.twig');
+        return $this->twig->render('signin.twig');
     }
 
     public function showSignUpForm()
     {
-        echo $this->twig->render('signup.twig');
+        return $this->twig->render('signup.twig');
     }
 
 }

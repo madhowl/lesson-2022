@@ -11,12 +11,11 @@
 
     <!-- Start Sidebar Widget Single Item - Service Catagory -->
     <div class="sidebar-widget-singel-item widget-box-bg gray-bg">
-        <h4 class="title">Category</h4>
+        <h4 class="title">Категории</h4>
         <ul class="widget-catagory">
-            <li><a href=""><i class="icofont-double-right"></i>Creative Solution</a></li>
-            <li><a href=""><i class="icofont-double-right"></i>Website Development</a></li>
-            <li><a href=""><i class="icofont-double-right"></i>Product Development</a></li>
-            <li><a href=""><i class="icofont-double-right"></i>Data Visualization</a></li>
+            {% for category in categories %}
+                <li><a href="/category/{{ category.id }}"><i class="icofont-double-right"></i>{{ category.title }}</a></li>
+            {% endfor %}
         </ul>
     </div>
     <!-- End Sidebar Widget Single Item - Service Catagory -->

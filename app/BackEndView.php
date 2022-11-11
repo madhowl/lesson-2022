@@ -28,5 +28,9 @@ class BackEndView
     {
         return $this->twig->render('signup.twig');
     }
+    public function showUserList($users)
+    {
+        return $this->twig->render('userlist.twig',['users' => $users]);
+    }
 
 }

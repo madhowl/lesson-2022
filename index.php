@@ -1,4 +1,5 @@
 <?php
+session_start();
 require __DIR__ . '/vendor/autoload.php';
 
 ini_set('display_errors', 1);
@@ -22,7 +23,10 @@ $router->map('GET', '/article/{id:number}', 'App\FrontEndController::article');
 
 $router->map('GET', '/admin', 'App\BackEndController::index');
 $router->map('GET', '/signin', 'App\BackEndController::showSignInForm');
+$router->map('POST', '/signin', 'App\BackEndController::UserSignIn');
 $router->map('GET', '/signup', 'App\BackEndController::showSignUpForm');
+$router->map('POST', '/signup', 'App\BackEndController::UserSignUp');
+$router->map('GET', '/admin/users', 'App\BackEndController::showUserList');
 
 $response = $router->dispatch($request);
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5aa7f72199f866b70b221f476b82170f",
+    "content-hash": "6b36f463c4b532beb5d22f83553e4f1b",
     "packages": [
         {
             "name": "brick/math",
@@ -1571,6 +1571,46 @@
                 "source": "https://github.com/scrawler-labs/arca-orm/tree/v1.1.2"
             },
             "time": "2022-09-29T21:10:01+00:00"
+        },
+        {
+            "name": "simple-validator/simple-validator",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cangelis/simple-validator.git",
+                "reference": "87aabf6a667cbea92efc2f88e2eea2a4121a6472"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cangelis/simple-validator/zipball/87aabf6a667cbea92efc2f88e2eea2a4121a6472",
+                "reference": "87aabf6a667cbea92efc2f88e2eea2a4121a6472",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SimpleValidator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Can Geliş",
+                    "email": "geliscan@gmail.com"
+                }
+            ],
+            "description": "Yet another validation class for PHP",
+            "support": {
+                "issues": "https://github.com/cangelis/simple-validator/issues",
+                "source": "https://github.com/cangelis/simple-validator/tree/1.0.2"
+            },
+            "time": "2017-06-29T10:09:43+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",

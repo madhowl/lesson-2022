@@ -1,0 +1,56 @@
+<div class="blog-details-section">
+    <div class="box-wrapper">
+        <div class="blog-details-wrapper">
+            <div class="container">
+                <div class="row">
+                    <!-- Start Article Details Top Area -->
+                    <div class="col-12">
+                        <div class="blog-details-top text-center">
+                            <div class="post-meata">
+                                <span class="author">Автор: <a href="">User </a></span>
+                                <span>{{ article.created_at|date('d/m/Y', timezone="Asia/Vladivostok") }}</span>
+                                <span>5 минут на прочтение</span>
+                            </div>
+                            <h2 class="title">{{ article.title }}</h2>
+                            <ul class="blog-tag">
+                                <li><a href="">Новости</a></li>
+                                <li><a href="">США</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Article Details Top Area -->
+
+                    <!-- Start Article Details Hero Image -->
+                    <div class="col-12">
+                        <div class="blog-details-hero-image mb-20">
+                            <img class="img-fluid" src="{{ article.intro_image }}" alt="">
+                        </div>
+                    </div>
+                    <!-- End Article Details Hero Image -->
+
+                    <!-- Start Article Details Content -->
+                    <div class="col-12">
+                        <div class="blog-details-content-wrapper default-text-content">
+                            {{ article.content }}
+                        </div>
+                    </div>
+                    <!-- End Article Details Content -->
+
+                    <!-- Start Article  Share -->
+                    <div class="col-12">
+                        <div class="blog-share ">
+                            <div class="text">Share this article:</div>
+                            <ul class="social-link">
+                                <li><a href="https://example.com/" target="_blank" rel="noopener noreferrer"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="https://example.com/" target="_blank" rel="noopener noreferrer"><i class="icofont-skype"></i></a></li>
+                                <li><a href="https://example.com/" target="_blank" rel="noopener noreferrer"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="https://example.com/" target="_blank" rel="noopener noreferrer"><i class="icofont-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Article  Share -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

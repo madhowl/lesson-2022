@@ -41,12 +41,7 @@ use Auth;
 
     public function index(ServerRequestInterface $request): ResponseInterface
     {
-        if ($this->checkAuth()){
-            return $this->showDashboard($request);
-
-        }else{
-            return $this->showSignInForm($request);
-        }
+        return $this->showDashboard($request);
     }
 
 
@@ -97,6 +92,12 @@ use Auth;
             }
         }
 
+    }
+
+    public function userLogOut(ServerRequestInterface $request): ResponseInterface
+    {
+        $this->signOut();
+        return $this->goUrl('/admin');
     }
 
     public function UserSignUp(ServerRequestInterface $request): ResponseInterface
@@ -161,12 +162,19 @@ use Auth;
         return $this->responseWrapper($html);
     }
 
-    public function showUserList()
+    public function showUsersList()
     {
         $users = $this->getAll('users');
         //dd($this->Model->manager->listTableColumns('users'));
         $columns = ['username','email'];
         $html = $this->View->showUserList($users);
+        return $this->responseWrapper($html);
+    }
+
+    public function showArticlesList()
+    {
+        $articles = $this->getAll('articles');
+        $html = $this->View->showArticlesList($articles);
         return $this->responseWrapper($html);
     }
 

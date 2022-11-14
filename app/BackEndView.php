@@ -32,5 +32,9 @@ class BackEndView
     {
         return $this->twig->render('userlist.twig',['users' => $users]);
     }
+    public function showArticlesList($articles)
+    {
+        return $this->twig->render('articleslist.twig',['articles' => $articles]);
+    }
 
 }

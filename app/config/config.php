@@ -5,6 +5,7 @@ require('vendor/autoload.php');
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use \App\Middleware\AuthMiddleware;
 use Tracy\Debugger;
 
 Debugger::enable();
@@ -59,4 +60,5 @@ $container->add(\App\BackEndController::class)
 
 $strategy = (new League\Route\Strategy\ApplicationStrategy)->setContainer($container);
 $router   = (new League\Route\Router)->setStrategy($strategy);
+//$router->middleware(new AuthMiddleware);
  return $router;

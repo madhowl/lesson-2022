@@ -1,0 +1,178 @@
+{% extends "layout.twig" %}
+{% block header %}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css"/>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col mx-auto">
+            <h6 class="mb-0 text-uppercase">Добавить статью</h6>
+            <div class="ms-auto">
+                <div class="btn-group">
+                    <a href="/admin/article-add"class="btn btn-primary">
+                        <i class="lni lni-circle-plus"></i>
+                        Добавить статью
+                    </a>
+                </div>
+            </div>
+            <hr/>
+            <div class="card border-top border-0 border-4 border-primary">
+                <div class="card-body p-5">
+                    <form class="row g-3" action="/admin/article-add" method="post">
+                        <div class="col-md-6">
+                            <label for="title" class="form-label">Заголовок статьи</label>
+                            <input name="title" type="text" class="form-control" id="title">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="category" class="form-label">Категория</label>
+                            <select name="category" id="category" class="form-select">
+                                {% for category in categories %}
+                                    <option value="{{ category.id }}">{{ category.title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <input id="ckfinder-input" type="text" class="form-control" name="intro_image">
+                            <a id="ckfinder-modal" class="btn btn-primary px-5">Browse Server</a>
+                        </div>
+                        <div class="col-12">
+                            <label for="intro_text" class="form-label">Вводный текст</label>
+                            <textarea class="editor1" name="intro_text" id="editor1" rows="5" cols="80"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <label for="content" class="form-label">Текст статьи</label>
+                            <textarea class="editor2" name="content" id="editor2" rows="15" cols="80"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">Check me out</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary px-5">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+{#    <script type="text/javascript" src="/assets/vendors/ckeditor5/build/ckeditor.js"></script>#}
+{#    <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>#}
+{#    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.1/super-build/ckeditor.js"></script>#}
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.1/classic/ckeditor.js"></script>
+
+    <script>
+
+
+        if ( typeof ClassicEditor !== 'undefined' ) {
+            ClassicEditor
+                .create( document.querySelector( '#editor1' ), {
+                    ckfinder: {
+                        // To avoid issues, set it to an absolute path that does not start with dots, e.g. '/ckfinder/core/php/(...)'
+                        uploadUrl: '../core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+                    },
+                    toolbar: [  '|', 'heading', '|',
+                        'removeFormat', 'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript',
+                        '|',
+                        'specialCharacters', 'horizontalLine', 'pageBreak',
+                        '|',
+                        'link', 'blockQuote', 'insertTable', 'ckfinder', 'ckbox', 'mediaEmbed', 'codeBlock', 'htmlEmbed',
+                        '|',
+                        'sourceEditing',
+                        '|',
+                        'bulletedList', 'numberedList', 'todoList',
+                        '|',
+                        'outdent', 'indent', 'alignment',
+                        '|',
+                        'textPartLanguage',
+                        '|',
+
+                    ]
+
+                } )
+
+                .then( function( editor ) {
+                    // console.log( editor );
+                } )
+                .catch( function( error ) {
+                    console.error( error );
+                } );
+        } else {
+            document.getElementById( 'editor1' ).innerHTML =
+                '<div class="tip-a tip-a-alert">This sample requires working Internet connection to load CKEditor 5 from CDN.</div>'
+        }
+
+        // Note: in this sample we use CKEditor with two extra plugins:
+        // - uploadimage to support pasting and dragging images,
+        // - image2 (instead of image) to provide images with captions.
+        // Additionally, the CSS style for the editing area has been slightly modified to provide responsive images during editing.
+        // All these modifications are not required by CKFinder, they just provide better user experience.
+        if ( typeof CKEDITOR !== 'undefined' ) {
+            CKEDITOR.disableAutoInline = true;
+            CKEDITOR.addCss( 'img {max-width:100%; height: auto;}' );
+            var editor = CKEDITOR.replace( 'editor2', {
+                extraPlugins: 'uploadimage,image2',
+                removePlugins: 'image',
+                height:250
+            } );
+            CKFinder.setupCKEditor( editor );
+        } else {
+            document.getElementById( 'editor2' ).innerHTML =
+                '<div class="tip-a tip-a-alert">This sample requires working Internet connection to load CKEditor 4 from CDN.</div>'
+        }
+
+    </script>
+{#    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.1/classic/ckeditor.js"></script>#}
+    <!-- jQuery and jQuery-UI -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/assets/vendors/ckfinder/samples/js/sf.js"></script>
+    <script src="/assets/vendors/ckfinder/samples/js/tree-a.js"></script>
+    <script src="/assets/vendors/ckfinder/ckfinder.js"></script>
+    <script>
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+
+
+        var button = document.getElementById( 'ckfinder-modal' );
+
+        button.onclick = function() {
+            selectFileWithCKFinder( 'ckfinder-input' );
+        };
+
+        function selectFileWithCKFinder( elementId ) {
+            CKFinder.modal( {
+                chooseFiles: true,
+                width: 800,
+                height: 600,
+                onInit: function( finder ) {
+                    finder.on( 'files:choose', function( evt ) {
+                        var file = evt.data.files.first();
+                        var output = document.getElementById( elementId );
+                        output.value = file.getUrl();
+                    } );
+
+                    finder.on( 'file:choose:resizedImage', function( evt ) {
+                        var output = document.getElementById( elementId );
+                        output.value = evt.data.resizedUrl;
+                    } );
+                }
+            } );
+        }
+    </script>
+
+    <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js" type="text/javascript"></script>
+
+
+{% endblock %}

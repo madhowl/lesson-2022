@@ -22,7 +22,11 @@
         "league/route": "^5.1",
         "laminas/laminas-diactoros": "^2.20",
         "laminas/laminas-httphandlerrunner": "^2.4",
-        "simple-validator/simple-validator": "1.0.*"
+        "simple-validator/simple-validator": "1.0.*",
+
+
+        "javiereguiluz/easyslugger": "^1.0",
+        "edsdk/flmngr-server-php": "^1.5"
     },
     "require-dev": {
         "symfony/var-dumper": "^6.1"

@@ -32,9 +32,13 @@ class BackEndView
     {
         return $this->twig->render('userlist.twig',['users' => $users]);
     }
-    public function showArticlesList($articles)
+    public function showArticlesList($articles, $categories)
     {
-        return $this->twig->render('articleslist.twig',['articles' => $articles]);
+        return $this->twig->render('articleslist.twig',['articles' => $articles, 'categories'=>$categories]);
+    }
+    public function showAddArticleForm($articles, $categories)
+    {
+        return $this->twig->render('add-article.twig',['articles' => $articles, 'categories'=>$categories]);
     }
 
 }

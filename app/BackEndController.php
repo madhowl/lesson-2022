@@ -13,6 +13,8 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Scrawler\Arca\Database;
 use SimpleValidator\Validator;
+use EdSDK\FlmngrServer\FlmngrServer;
+use EasySlugger\Slugger;
 
 class BackEndController
 {
@@ -69,6 +71,8 @@ use Auth;
         $all = $this->Model->get($tablename,$id);
         return $all->toArray();
     }
+
+
     /**
     * end Model
      **/
@@ -144,6 +148,18 @@ use Auth;
         }
     }
 
+    public function filemanager(ServerRequestInterface $request): ResponseInterface
+    {
+
+        //dd(__DIR__ . '../files');
+        $html =  FlmngrServer::flmngrRequest([
+            'dirFiles' => __DIR__ . '/files/',
+        ]);
+        var_dump($html);
+        //$html = $this->View->index();
+        //return $this->responseWrapper($html);
+    }
+
     public function showDashboard(ServerRequestInterface $request): ResponseInterface
     {
         $html = $this->View->index();
@@ -162,7 +178,7 @@ use Auth;
         return $this->responseWrapper($html);
     }
 
-    public function showUsersList()
+    public function showUsersList(ServerRequestInterface $request): ResponseInterface
     {
         $users = $this->getAll('users');
         //dd($this->Model->manager->listTableColumns('users'));
@@ -171,10 +187,19 @@ use Auth;
         return $this->responseWrapper($html);
     }
 
-    public function showArticlesList()
+    public function showArticlesList(ServerRequestInterface $request): ResponseInterface
     {
         $articles = $this->getAll('articles');
-        $html = $this->View->showArticlesList($articles);
+        $categories = $this->getAll('categories');
+        $html = $this->View->showArticlesList($articles,$categories );
+        return $this->responseWrapper($html);
+    }
+
+    public function showAddArticleForm(ServerRequestInterface $request): ResponseInterface
+    {
+        $articles = $this->getAll('articles');
+        $categories = $this->getAll('categories');
+        $html = $this->View->showAddArticleForm($articles,$categories );
         return $this->responseWrapper($html);
     }
 

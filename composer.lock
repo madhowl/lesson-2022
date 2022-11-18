@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b36f463c4b532beb5d22f83553e4f1b",
+    "content-hash": "59a50bf6c698d0dd233e2bacc0474fc7",
     "packages": [
         {
             "name": "brick/math",
@@ -399,6 +399,92 @@
                 }
             ],
             "time": "2022-10-12T20:59:15+00:00"
+        },
+        {
+            "name": "edsdk/flmngr-server-php",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/edsdk/flmngr-server-php.git",
+                "reference": "3ef6535bdd6b31ab54a2f3337734f3e8ef90e7b3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/edsdk/flmngr-server-php/zipball/3ef6535bdd6b31ab54a2f3337734f3e8ef90e7b3",
+                "reference": "3ef6535bdd6b31ab54a2f3337734f3e8ef90e7b3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-gd": "*",
+                "ext-json": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EdSDK\\FlmngrServer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "EdSDK / N1ED / Flmngr team",
+                    "email": "support@n1ed.zendesk.com"
+                }
+            ],
+            "description": "Flmngr file manager PHP backend",
+            "homepage": "https://flmngr.com",
+            "keywords": [
+                "file",
+                "finder",
+                "image",
+                "imgpen",
+                "manager",
+                "server",
+                "upload"
+            ],
+            "support": {
+                "issues": "https://github.com/edsdk/flmngr-server-php/issues",
+                "source": "https://github.com/edsdk/flmngr-server-php/tree/1.5.0"
+            },
+            "time": "2022-08-14T20:47:28+00:00"
+        },
+        {
+            "name": "javiereguiluz/easyslugger",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/javiereguiluz/EasySlugger.git",
+                "reference": "11524a3fd70e3f0c98043755a0ffa228f2529211"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/javiereguiluz/EasySlugger/zipball/11524a3fd70e3f0c98043755a0ffa228f2529211",
+                "reference": "11524a3fd70e3f0c98043755a0ffa228f2529211",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EasySlugger\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A fast and easy to use slugger with full UTF-8 support.",
+            "support": {
+                "issues": "https://github.com/javiereguiluz/EasySlugger/issues",
+                "source": "https://github.com/javiereguiluz/EasySlugger/tree/v1.0.0"
+            },
+            "time": "2015-04-12T19:57:10+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",

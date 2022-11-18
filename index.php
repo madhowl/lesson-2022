@@ -29,8 +29,10 @@ $router->map('POST', '/signup', 'App\BackEndController::UserSignUp');
 $router->group('/admin', function (\League\Route\RouteGroup $router) {
     $router->map('GET', '/', 'App\BackEndController::index');
     $router->map('GET', '/logout', 'App\BackEndController::userLogOut');
+    $router->map('GET', '/filemanager', 'App\BackEndController::filemanager');
     $router->map('GET', '/users', 'App\BackEndController::showUsersList');
     $router->map('GET', '/articles', 'App\BackEndController::showArticlesList');
+    $router->map('GET', '/article-add', 'App\BackEndController::showAddArticleForm');
 })->middleware(new \App\Middleware\AuthMiddleware);
 
 $response = $router->dispatch($request);

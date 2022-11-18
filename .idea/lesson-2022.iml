@@ -31,6 +31,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-diactoros" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-httphandlerrunner" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/simple-validator/simple-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/javiereguiluz/easyslugger" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/edsdk/flmngr-server-php" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

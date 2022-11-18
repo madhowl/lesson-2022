@@ -38,6 +38,9 @@
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-diactoros" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-httphandlerrunner" />
       <path value="$PROJECT_DIR$/vendor/simple-validator/simple-validator" />
+      <path value="$PROJECT_DIR$/vendor/noahbuscher/macaw" />
+      <path value="$PROJECT_DIR$/vendor/javiereguiluz/easyslugger" />
+      <path value="$PROJECT_DIR$/vendor/edsdk/flmngr-server-php" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />

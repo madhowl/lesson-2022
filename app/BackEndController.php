@@ -203,4 +203,10 @@ use Auth;
         return $this->responseWrapper($html);
     }
 
+    public function AddArticle(ServerRequestInterface $request): ResponseInterface
+    {
+        $requestBody = $request->getParsedBody();
+        dd($requestBody);
+    }
+
 }

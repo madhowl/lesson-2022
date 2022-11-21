@@ -15,7 +15,7 @@ CREATE TABLE `article_tag` (
   KEY `article_tag_FK_1` (`tag_id`),
   CONSTRAINT `article_tag_FK` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`),
   CONSTRAINT `article_tag_FK_1` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `articles`;
@@ -37,7 +37,7 @@ CREATE TABLE `articles` (
   KEY `articles_FK_1` (`user_id`),
   CONSTRAINT `articles_FK` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`),
   CONSTRAINT `articles_FK_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `categories`;
@@ -48,7 +48,7 @@ CREATE TABLE `categories` (
   `description` text,
   `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `tags`;
@@ -57,7 +57,7 @@ CREATE TABLE `tags` (
   `title` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tags_title_uindex` (`title`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `users`;
@@ -69,7 +69,7 @@ CREATE TABLE `users` (
   `admin` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_uindex` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
--- 2022-10-31 04:37:06
+

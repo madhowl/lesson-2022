@@ -41,6 +41,10 @@
       <path value="$PROJECT_DIR$/vendor/noahbuscher/macaw" />
       <path value="$PROJECT_DIR$/vendor/javiereguiluz/easyslugger" />
       <path value="$PROJECT_DIR$/vendor/edsdk/flmngr-server-php" />
+      <path value="$PROJECT_DIR$/vendor/laravel/serializable-closure" />
+      <path value="$PROJECT_DIR$/vendor/php-di/phpdoc-reader" />
+      <path value="$PROJECT_DIR$/vendor/php-di/php-di" />
+      <path value="$PROJECT_DIR$/vendor/php-di/invoker" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />

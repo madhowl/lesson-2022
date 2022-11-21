@@ -33,6 +33,7 @@ $router->group('/admin', function (\League\Route\RouteGroup $router) {
     $router->map('GET', '/users', 'App\BackEndController::showUsersList');
     $router->map('GET', '/articles', 'App\BackEndController::showArticlesList');
     $router->map('GET', '/article-add', 'App\BackEndController::showAddArticleForm');
+    $router->map('POST', '/article-add', 'App\BackEndController::AddArticle');
 })->middleware(new \App\Middleware\AuthMiddleware);
 
 $response = $router->dispatch($request);

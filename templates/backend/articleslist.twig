@@ -6,13 +6,13 @@
 
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Tables</div>
+        <div class="breadcrumb-title pe-3">Статьи</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Data Table</li>
+                    <li class="breadcrumb-item active" aria-current="page">Список Статей</li>
                 </ol>
             </nav>
         </div>
@@ -37,14 +37,14 @@
                         <th>Название</th>
                         <th>Обложка</th>
                         <th>Категория</th>
-                        <th>Краткое содержание</th>
+{#                        <th>Краткое содержание</th>#}
                         <th>Действия</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for article in articles %}
                     <tr>
-                        <td>{{ article.title }}</td>
+                        <td><b>{{ article.title }}</b></td>
                         <td>
                             <img src="{{ article.intro_image }}" class="rounded-circle p-1 border" alt="..." width="90" height="90">
                             </td>
@@ -54,14 +54,11 @@
                                     {{ category.title }}
                                 {% endif %}
                             {% endfor %}
-                        <td><p>{{ article.intro_text }}</p></td>
+{#                        <td>{{ article.intro_text|raw }}</td>#}
                         <td>
-                            <button type="button" class="btn btn-warning">
+                            <a class="btn btn-warning" href="/admin/article-edit/{{ article.id }}">
                                  <i class="lni lni-pencil"></i>
-                            </button>
-                            <button type="button" class="btn btn-secondary">
-                                <i class="fadeIn animated bx bx-block"></i>
-                            </button>
+                            </a>
                             <button type="button" class="btn btn-danger">
                                 <i class="lni lni-trash"></i>
                             </button>
@@ -72,9 +69,11 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        <th>Имя пользователя</th>
-                        <th>Email</th>
-                        <th>Action</th>
+                        <th>Название</th>
+                        <th>Обложка</th>
+                        <th>Категория</th>
+                        {#                        <th>Краткое содержание</th>#}
+                        <th>Действия</th>
                     </tr>
                     </tfoot>
                 </table>

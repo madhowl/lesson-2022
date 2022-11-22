@@ -33,7 +33,17 @@ $router->group('/admin', function (\League\Route\RouteGroup $router) {
     $router->map('GET', '/users', 'App\BackEndController::showUsersList');
     $router->map('GET', '/articles', 'App\BackEndController::showArticlesList');
     $router->map('GET', '/article-add', 'App\BackEndController::showAddArticleForm');
-    $router->map('POST', '/article-add', 'App\BackEndController::AddArticle');
+    $router->map('POST', '/article-add', 'App\BackEndController::insertArticle');
+    $router->map(
+        'GET',
+        '/article-edit/{id:number}',
+        'App\BackEndController::showUpdateArticleForm'
+    );
+    $router->map(
+        'POST',
+        '/article-update/{id:number}',
+        'App\BackEndController::updateArticle'
+    );
 })->middleware(new \App\Middleware\AuthMiddleware);
 
 $response = $router->dispatch($request);

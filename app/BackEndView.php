@@ -36,9 +36,9 @@ class BackEndView
     {
         return $this->twig->render('articleslist.twig',['articles' => $articles, 'categories'=>$categories]);
     }
-    public function showAddArticleForm($articles, $categories)
+    public function showAddArticleForm($article, $categories, $target)
     {
-        return $this->twig->render('add-article.twig',['articles' => $articles, 'categories'=>$categories]);
+        return $this->twig->render('add-article.twig',['article' => $article, 'categories'=>$categories, 'target'=> $target]);
     }
 
 }

@@ -6,21 +6,14 @@
     <div class="row">
         <div class="col mx-auto">
             <h6 class="mb-0 text-uppercase">Добавить статью</h6>
-            <div class="ms-auto">
-                <div class="btn-group">
-                    <a href="/admin/article-add"class="btn btn-primary">
-                        <i class="lni lni-circle-plus"></i>
-                        Добавить статью
-                    </a>
-                </div>
-            </div>
+
             <hr/>
             <div class="card border-top border-0 border-4 border-primary">
                 <div class="card-body p-5">
-                    <form class="row g-3" action="/admin/article-add" method="post">
+                    <form class="row g-3" action="/admin/{{ target }}" method="post">
                         <div class="col-md-6">
                             <label for="title" class="form-label">Заголовок статьи</label>
-                            <input name="title" type="text" class="form-control" id="title">
+                            <input name="title" type="text" class="form-control" id="title" value="{{ article.title }}">
                         </div>
                         <div class="col-md-6">
                             <label for="category" class="form-label">Категория</label>
@@ -31,17 +24,31 @@
                             </select>
                         </div>
                         <div class="col-12">
-                            <input id="ckfinder-input" type="text" class="form-control" name="intro_image">
-                            <a id="ckfinder-modal" class="btn btn-primary px-5">Browse Server</a>
+                            <div class="row">
+                                <div class="col">
+                                    <label  class="form-label">Выберите обложку</label>
+                                    <input value="{{ article.intro_image }}" id="ckfinder-input" type="text" class="form-control" name="intro_image">
+                                </div>
+                                <div class="col">
+                                    <label  class="form-label">&nbsp;</label>
+                                    <br><a id="ckfinder-modal" class="btn btn-primary px-5">Выбрать</a>
+                                </div>
+                            </div>
                         </div>
+
+
                         <div class="col-12">
                             <label for="intro_text" class="form-label">Вводный текст</label>
-                            <textarea class="summernote" name="intro_text" id="summernote" ></textarea>
+                            <textarea class="summernote" name="intro_text" id="summernote" >
+                                {{ article.intro_text }}
+                            </textarea>
 
                         </div>
                         <div class="col-12">
                             <label for="content" class="form-label">Текст статьи</label>
-                            <textarea class="editor1" name="content" id="editor1" rows="15" cols="80"></textarea>
+                            <textarea class="editor1" name="content" id="editor1" rows="15" cols="80">
+                                {{ article.content }}
+                            </textarea>
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary px-5">Сохранить</button>

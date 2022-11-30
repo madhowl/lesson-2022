@@ -8,6 +8,7 @@
     <!--favicon-->
     <link rel="icon" href="/assets/backend/images/favicon-32x32.png" type="image/png" />
     <!--plugins-->
+    <link rel="stylesheet" href="/assets/backend/plugins/notifications/css/lobibox.min.css" />
     <link href="/assets/backend/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
     <link href="/assets/backend/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
     <link href="/assets/backend/plugins/highcharts/css/highcharts.css" rel="stylesheet" />
@@ -80,8 +81,32 @@
     new PerfectScrollbar('.store-metrics');
     new PerfectScrollbar('.product-list');
 </script>
+
 {% block script %}
 {% endblock %}
+
+<!--notification js -->
+<script src="/assets/backend/plugins/notifications/js/lobibox.min.js"></script>
+<script src="/assets/backend/plugins/notifications/js/notifications.min.js"></script>
+<!-- test -->
+{% set ms = message.text  %}
+{% if  (ms) %}
+<script>
+    function show_message() {
+        Lobibox.notify('{{ message.color }}', {
+            pauseDelayOnHover: true,
+            size: 'mini',
+            rounded: true,
+            delayIndicator: false,
+            continueDelayOnInactiveTab: false,
+            position: '{{ message.position }}',
+            msg: '{{  message.text }} '
+        });
+    }
+    show_message();
+</script>
+{% endif %}
+<!-- test -->
 </body>
 
 </html>

@@ -7,14 +7,27 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use \App\Middleware\AuthMiddleware;
 use Tracy\Debugger;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 Debugger::enable();
 
 $container = new League\Container\Container();
 $connectionParams = include ('app/config/db.php');
+$illuminateСonnectionParams = include ('app/config/db.php');
+
 
 
 $container->add('Response',Laminas\Diactoros\Response::class);
+$container->add(Capsule::class)
+    ->addMethodCall('addConnection', $illuminateСonnectionParams)
+    ->addMethodCall('setAsGlobal')
+    ->addMethodCall('bootEloquent');
+
+$container->add(\App\Models\Article::class);
+$container->add(\App\Models\Database::class)
+    ->addArgument(Capsule::class);
+
+
 $container->add('Model',\Scrawler\Arca\Database::class)
     ->addArgument($connectionParams);
 

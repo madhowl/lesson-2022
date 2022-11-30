@@ -6,14 +6,12 @@ namespace App;
 
 
 use App\Core\Auth;
-
 use Laminas\Diactoros\Response;
 use Laminas\Diactoros\Response\RedirectResponse;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Scrawler\Arca\Database;
 use SimpleValidator\Validator;
-use EdSDK\FlmngrServer\FlmngrServer;
 use EasySlugger\Slugger;
 
 class BackEndController
@@ -46,7 +44,24 @@ use Auth;
         return $this->showDashboard($request);
     }
 
-
+    public function setMessage($text, $color = 'success', $position = 'top right' )
+    {
+      $_SESSION['message'] =
+          [
+              'color'=>$color,
+              'text'=>$text,
+              'position'=>$position
+          ];
+    }
+    public function getMessage()
+    {
+        $message = null;
+        if (isset($_SESSION['message'])){
+            $message = $_SESSION['message'];
+            unset($_SESSION['message']);
+        }
+        return $message;
+    }
     /**
      * Эти методы относится к модели - нужно определиться выносить модели в отдельный класс
      * или оставлять в этом...
@@ -168,8 +183,6 @@ use Auth;
     public function showUsersList(ServerRequestInterface $request): ResponseInterface
     {
         $users = $this->getAll('users');
-        //dd($this->Model->manager->listTableColumns('users'));
-        $columns = ['username','email'];
         $html = $this->View->showUserList($users);
         return $this->responseWrapper($html);
     }
@@ -178,24 +191,33 @@ use Auth;
     {
         $articles = $this->getAll('articles');
         $categories = $this->getAll('categories');
-        $html = $this->View->showArticlesList($articles,$categories );
+        $message = $this->getMessage();
+        $html = $this->View->showArticlesList($articles,$categories, $message);
         return $this->responseWrapper($html);
     }
 
     public function showAddArticleForm(ServerRequestInterface $request): ResponseInterface
     {   $article = [];
+        $tags = $this->getAll('tags');
         $categories = $this->getAll('categories');
         $target = 'article-add';
-        $html = $this->View->showAddArticleForm($article, $categories, $target );
+        $html = $this->View->showAddArticleForm($article, $categories, $target, $tags);
         return $this->responseWrapper($html);
     }
 
     public function showUpdateArticleForm(ServerRequestInterface $request, array $arg): ResponseInterface
     {
         $article = $this->getById('articles', $arg['id']);
+        $selected_tag = $this->Model->find('article_tag' )
+            ->select('tag_id')
+            ->where('article_id = :id')
+            ->setParameter('id',$arg['id'])
+            ->get()
+            ->toArray();
+        $tags = $this->getAll('tags');
         $categories = $this->getAll('categories');
         $target = 'article-update/'.$arg['id'];
-        $html = $this->View->showAddArticleForm($article, $categories, $target );
+        $html = $this->View->showAddArticleForm($article, $categories, $target, $tags, $selected_tag );
         return $this->responseWrapper($html);
     }
 
@@ -217,14 +239,30 @@ use Auth;
         $article->created_at = $date;
         $article->deleted_at = 0;
         $article->favorites = 0;
-        //dd($article);
         $article->save();
+
+        if (isset($requestBody['tags'])) {
+            $qb = $this->Model->connection
+                ->createQueryBuilder()
+                ->delete('article_tag', 'at')
+                ->where('at.article_id = :id')
+                ->setParameter('id', $article->id)
+                ->executeQuery();
+
+            foreach ($requestBody['tags'] as $tag) {
+                $article_tag = $this->Model->create('article_tag');
+                $article_tag->article_id = $article->id;
+                $article_tag->tag_id = $tag;
+                $article_tag->save();
+            }
+        }
     }
 
     public function insertArticle(ServerRequestInterface $request): ResponseInterface
     {
         $requestBody = $request->getParsedBody();
         $this->saveArticle($requestBody,$id = null);
+        $this->setMessage('Статья добавлена успешно ;)');
         return $this->goUrl('/admin/articles');
     }
 
@@ -232,7 +270,58 @@ use Auth;
     {
         $requestBody = $request->getParsedBody();
         $this->saveArticle($requestBody, $arg['id']);
+        $this->setMessage('Изменения выполнены успешно');
         return $this->goUrl('/admin/articles');
     }
 
+    public function showTagList(ServerRequestInterface $request): ResponseInterface
+    {
+        $tags = $this->getAll('tags');
+        $message = $this->getMessage();
+        $html = $this->View->showTagsList($tags, $message );
+        return $this->responseWrapper($html);
+    }
+
+    public function showAddTagForm(ServerRequestInterface $request): ResponseInterface
+    {   $tag = [];
+        $target = 'tag-add';
+        $html = $this->View->showAddTagForm($tag, $target );
+        return $this->responseWrapper($html);
+    }
+
+    public function insertTag(ServerRequestInterface $request): ResponseInterface
+    {
+        $requestBody = $request->getParsedBody();
+        $this->saveTag($requestBody,$id = null);
+        $this->setMessage('Тэг добавлен успешно ;)');
+        return $this->goUrl('/admin/tags');
+    }
+
+    public function saveTag(array $requestBody,  $id)
+    {
+        if ($id <> null){
+            $tag = $this->Model->get('tags',$id);
+        }else{
+            $tag = $this->Model->create('tags');
+        }
+        $tag->title = $requestBody['title'];
+        $tag->save();
+    }
+
+    public function showUpdateTagForm(ServerRequestInterface $request, array $arg): ResponseInterface
+    {
+        $tag = $this->getById('tags', $arg['id']);
+        $target = 'tag-update/'.$arg['id'];
+        $html = $this->View->showAddTagForm($tag, $target );
+        return $this->responseWrapper($html);
+    }
+
+
+    public function updateTag(ServerRequestInterface $request, array $arg): ResponseInterface
+    {
+        $requestBody = $request->getParsedBody();
+        $this->saveTag($requestBody, $arg['id']);
+        $this->setMessage('Изменения выполнены успешно');
+        return $this->goUrl('/admin/tags');
+    }
 }

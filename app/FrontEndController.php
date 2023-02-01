@@ -49,6 +49,7 @@ class FrontEndController
         $html = $this->View->articleList($articles, $categories);
         return $this->responseWrapper($html);
     }
+
     public function article(ServerRequestInterface $request, array $arg): ResponseInterface
     {
         $article = $this->getById('articles',$arg['id']);

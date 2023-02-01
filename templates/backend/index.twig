@@ -4,20 +4,27 @@
 {% block content %}
 
 
-    <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4">
+    <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
         <div class="col">
-            <div class="card radius-10 overflow-hidden bg-danger">
+            <div class="card radius-10 overflow-hidden bg-success">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div>
-                            <p class="mb-0 text-white">Total Orders</p>
-                            <h5 class="mb-0 text-white">867</h5>
+                            <p class="mb-3 text-white">Статьи</p>
+                            <h5 class="mb-0 text-white">всего статей - {{ articles_count }}</h5>
                         </div>
-                        <div class="ms-auto text-white">	<i class='bx bx-cart font-30'></i>
+                        <div class="ms-auto text-white">	<i class='bx bx-book font-60'></i>
                         </div>
+
+                    </div>
+                    <div class="mt-5 mb-3">
+                        <a href="/admin/article-add" class="btn text-white">
+                            <i class="lni lni-circle-plus"></i>
+                            Добавить статью
+                        </a>
                     </div>
                 </div>
-                <div class="" id="chart1"></div>
+
             </div>
         </div>
         <div class="col">
@@ -25,14 +32,19 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div>
-                            <p class="mb-0 text-white">Total Income</p>
-                            <h5 class="mb-0 text-white">$52,945</h5>
+                            <p class="mb-3 text-white">Категории</p>
+                            <h5 class="mb-0 text-white">всего категорий - {{ categories_count }}</h5>
                         </div>
-                        <div class="ms-auto text-white">	<i class='bx bx-wallet font-30'></i>
+                        <div class="ms-auto text-white">	<i class='bx bx-menu font-60'></i>
                         </div>
                     </div>
                 </div>
-                <div class="" id="chart2"></div>
+                <div class="mt-5 mb-3">
+                    <a href="/admin/tag-add" class="btn text-white">
+                        <i class="lni lni-circle-plus"></i>
+                        Добавить тэг
+                    </a>
+                </div>
             </div>
         </div>
         <div class="col">
@@ -40,29 +52,21 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div>
-                            <p class="mb-0 text-dark">Total Users</p>
-                            <h5 class="mb-0 text-dark">24.5K</h5>
+                            <p class="mb-3 text-dark">Тэги</p>
+                            <h5 class="mb-0 text-dark">всего тэгов - {{ tags_count }}</h5>
                         </div>
-                        <div class="ms-auto text-dark">	<i class='bx bx-group font-30'></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="" id="chart3"></div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card radius-10 overflow-hidden bg-success">
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-                        <div>
-                            <p class="mb-0 text-white">Comments</p>
-                            <h5 class="mb-0 text-white">869</h5>
-                        </div>
-                        <div class="ms-auto text-white">	<i class='bx bx-chat font-30'></i>
+                        <div class="ms-auto text-dark">	<i class='bx bx-purchase-tag font-60'></i>
                         </div>
                     </div>
+
+                    <div class="mt-5 mb-3">
+                        <a href="/admin/tag-add" class="btn text-dark">
+                            <i class="lni lni-circle-plus"></i>
+                            Добавить тэг
+                        </a>
+                    </div>
                 </div>
-                <div class="" id="chart4"></div>
+
             </div>
         </div>
     </div><!--end row-->

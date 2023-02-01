@@ -18,7 +18,8 @@
 	<link href="/assets/backend/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/assets/backend/css/app.css" rel="stylesheet">
 	<link href="/assets/backend/css/icons.css" rel="stylesheet">
-	<title>Dashkote - Bootstrap5 Admin Template</title>
+	<link href="/assets/backend/plugins/notifications/css/lobibox.min.css" rel="stylesheet">
+	<title>Sign up</title>
 </head>
 
 <body class="bg-login">
@@ -113,6 +114,33 @@
 	</script>
 	<!--app JS-->
 	<script src="/assets/backend/js/app.js"></script>
+	<!--notification js -->
+	<script src="/assets/backend/plugins/notifications/js/lobibox.min.js"></script>
+	<script src="/assets/backend/plugins/notifications/js/notifications.min.js"></script>
+	<!-- test -->
+	{% set ms = message.text  %}
+
+	{% if  (ms) %}
+		<script>
+			function show_message() {
+				Lobibox.notify('{{ message.color }}', {
+					pauseDelayOnHover: true,
+					size: 'mini',
+					sound: false,
+					rounded: true,
+					delayIndicator: true,
+					delay: 2000,
+					title: 'Warning !!!',
+					icon: false,
+					continueDelayOnInactiveTab: false,
+					position: '{{ message.position }}',
+					msg: '{{  message.text }} '
+				});
+			}
+			show_message();
+		</script>
+	{% endif %}
+	<!-- test -->
 </body>
 
 </html>

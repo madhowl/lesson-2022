@@ -37,7 +37,6 @@
                         <th>Название</th>
                         <th>Обложка</th>
                         <th>Категория</th>
-{#                        <th>Краткое содержание</th>#}
                         <th>Действия</th>
                     </tr>
                     </thead>
@@ -54,14 +53,31 @@
                                     {{ category.title }}
                                 {% endif %}
                             {% endfor %}
-{#                        <td>{{ article.intro_text|raw }}</td>#}
                         <td>
                             <a class="btn btn-warning" href="/admin/article-edit/{{ article.id }}">
                                  <i class="lni lni-pencil"></i>
                             </a>
-                            <button type="button" class="btn btn-danger">
-                                <i class="lni lni-trash"></i>
-                            </button>
+                            <!-- Button trigger modal -->
+                            <a type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleDangerModal"><i class="lni lni-trash"></i></a>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleDangerModal" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content bg-danger">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title text-white">Предуприждение</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-white">
+                                            <p>Вы уверены в своих действиях?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a type="button" class="btn btn-light" data-bs-dismiss="modal">Отменить</a>
+                                            <a href="/admin/article-delete/{{ article.id }}" type="button" class="btn btn-dark">Удалить</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
 
                     </tr>
@@ -72,11 +88,32 @@
                         <th>Название</th>
                         <th>Обложка</th>
                         <th>Категория</th>
-                        {#                        <th>Краткое содержание</th>#}
                         <th>Действия</th>
                     </tr>
                     </tfoot>
                 </table>
+                <div class="col">
+                    <!-- Button trigger modal -->
+                    <a type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleDangerModal">Danger Modal</a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleDangerModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content bg-danger">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-white">Предуприждение</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-white">
+                                    <p>Вы уверены в своих действиях?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a type="button" class="btn btn-light" data-bs-dismiss="modal">Отменить</a>
+                                    <a href="/article-delete/" type="button" class="btn btn-dark">Удалить</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

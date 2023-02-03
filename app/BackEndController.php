@@ -125,6 +125,24 @@ use Auth;
         return $all->toArray();
     }
 
+    public function getActiveArticles(int $offset=4, int $limit=5):array
+    {
+        $articles = $this->Model->find('articles')
+            ->where('deleted_at = 0')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->get();
+        return $articles->toArray();
+    }
+
+    public function getDeletedArticles():array
+    {
+        $articles = $this->Model->find('articles')
+            ->where('deleted_at <> 0')
+            ->get();
+        return $articles->toArray();
+    }
+
     public function getById(string $tablename,  $id)
     {
         $all = $this->Model->get($tablename,$id);
@@ -390,12 +408,21 @@ use Auth;
         return $this->responseWrapper($html);
     }
 
-    public function showArticlesList(ServerRequestInterface $request): ResponseInterface
+    //  --------- start Articles CRUD ---------
+    public function showArticlesList(ServerRequestInterface $request, array $arg=['pageno' => 1]): ResponseInterface
     {
-        $articles = $this->getAll('articles');
+        $pageno = $arg['pageno'];
+        $size_page = 5;
+        $offset = ($pageno-1) * $size_page;
+        $total_rows = $this->Model->get('articles')->count();;
+        $total_pages = ceil($total_rows / $size_page);
+
+
+        $articles = $this->getActiveArticles();
         $categories = $this->getAll('categories');
+        $user = $this->getById('users',$_SESSION['user_id']);
         $message = $this->getMessage();
-        $html = $this->View->showArticlesList($articles,$categories, $message);
+        $html = $this->View->showArticlesList($articles,$categories, $message, $user);
         return $this->responseWrapper($html);
     }
 
@@ -477,11 +504,23 @@ use Auth;
         return $this->goUrl('/admin/articles');
     }
 
+    public function deleteArticle(ServerRequestInterface $request, array $arg): ResponseInterface
+    {
+        $article = $this->Model->get('articles',$arg['id']);
+        $article->deleted_at = time();
+        $article->save();
+        $this->setMessage('Статья перемещена в корзину');
+        return $this->goUrl('/admin/articles');
+    }
+    //  --------- end Articles CRUD ---------
+
+    //  --------- start Tags CRUD ---------
     public function showTagsList(ServerRequestInterface $request): ResponseInterface
     {
         $tags = $this->getAll('tags');
+
         $message = $this->getMessage();
-        $html = $this->View->showTagsList($tags, $message );
+        $html = $this->View->showTagsList($tags, $message);
         return $this->responseWrapper($html);
     }
 
@@ -526,7 +565,9 @@ use Auth;
         $this->setMessage('Изменения выполнены успешно');
         return $this->goUrl('/admin/tags');
     }
+    //  --------- End Tags CRUD ---------
 
+    //  --------- start Categories CRUD ---------
     public function showCategoriesList(ServerRequestInterface $request): ResponseInterface
     {
         $categories = $this->getAll('categories');
@@ -580,4 +621,5 @@ use Auth;
         $this->setMessage('Изменения выполнены успешно');
         return $this->goUrl('/admin/categories');
     }
+    //  --------- End Categories CRUD ---------
 }

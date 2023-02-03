@@ -11,9 +11,10 @@
             </div>
             <div class="user-box dropdown">
                 <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://via.placeholder.com/110x110" class="user-img" alt="user avatar">
+                    <img src="{{ user.avatar }}" class="user-img" alt="user avatar">
                     <div class="user-info ps-3">
-                        <p class="user-name mb-0">Администратор</p>
+                        <p class="user-name mb-0">{{ user.username }}
+                        </p>
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">

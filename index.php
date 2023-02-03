@@ -18,6 +18,7 @@ $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
 );
 
 $router->map('GET', '/', 'App\FrontEndController::index');
+$router->map('GET', '/articles/page/{nom:number}', 'App\FrontEndController::index');
 $router->map('GET', '/article/{id:number}', 'App\FrontEndController::article');
 
 
@@ -52,6 +53,11 @@ $router->group('/admin', function (\League\Route\RouteGroup $router) {
         'POST',
         '/article-update/{id:number}',
         'App\BackEndController::updateArticle'
+    );
+    $router->map(
+        'GET',
+        '/article-delete/{id:number}',
+        'App\BackEndController::deleteArticle'
     );
     $router->map('GET', '/tags', 'App\BackEndController::showTagsList');
     $router->map('GET', '/tag-add', 'App\BackEndController::showAddTagForm');

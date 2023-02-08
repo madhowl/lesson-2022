@@ -14,14 +14,15 @@ class BackEndView
         $this->twig = $twig;
     }
 
-    public function index($categories_count, $articles_count, $tags_count, $message)
+    public function index($categories_count, $articles_count, $tags_count, $message, $user)
     {
         return $this->twig->render('index.twig',
             [
                 'categories_count'=>$categories_count,
                 'articles_count'=>$articles_count,
                 'tags_count'=>$tags_count,
-                'message' => $message
+                'message' => $message,
+                'user' => $user
             ]);
     }
 
@@ -40,9 +41,9 @@ class BackEndView
         return $this->twig->render('signup.twig');
     }
 
-    public function showUserList($users)
+    public function showUserList($users, $user)
     {
-        return $this->twig->render('userlist.twig',['users' => $users]);
+        return $this->twig->render('userlist.twig',['users' => $users, 'user' => $user]);
     }
 
     public function showArticlesList($articles, $categories, $message, $user)
@@ -57,7 +58,7 @@ class BackEndView
             ]);
     }
 
-    public function showAddArticleForm($article, $categories, $target, $tags, $selected_tag = [])
+    public function showAddArticleForm($article, $categories, $target, $tags, $user, $selected_tag = [])
     {
         return $this->twig->render(
             'add-article.twig',
@@ -66,36 +67,49 @@ class BackEndView
                 'categories'=>$categories,
                 'target'=> $target,
                 'tags' => $tags,
-                'selected_tag' => $selected_tag
+                'selected_tag' => $selected_tag,
+                'user' => $user
             ]);
     }
 
-    public function showTagsList($tags, $message)
+    public function showTagsList($tags, $message, $user)
     {
         return $this->twig->render('tags/tagslist.twig',
             [
                 'tags' => $tags,
-                'message' => $message
+                'message' => $message,
+                'user' => $user
             ]);
     }
 
-    public function showAddTagForm($tag, $target)
+    public function showAddTagForm($tag, $target, $user)
     {
-        return $this->twig->render('tags/add-tag.twig',['tag' => $tag, 'target'=> $target]);
+        return $this->twig->render('tags/add-tag.twig',
+            [
+                'tag' => $tag,
+                'target'=> $target,
+                'user' => $user
+            ]);
     }
 
-    public function showCategoriesList($categories, $message)
+    public function showCategoriesList($categories, $message, $user)
     {
         return $this->twig->render('categorieslist.twig',
             [
                 'categories' => $categories,
-                'message' => $message
+                'message' => $message,
+                'user' => $user
             ]);
     }
 
-    public function showAddCategoryForm($category, $target)
+    public function showAddCategoryForm($category, $target, $user)
     {
-        return $this->twig->render('add-category.twig',['category' => $category, 'target'=> $target]);
+        return $this->twig->render('add-category.twig',
+            [
+                'category' => $category,
+                'target'=> $target,
+                'user' => $user
+            ]);
     }
 
 }

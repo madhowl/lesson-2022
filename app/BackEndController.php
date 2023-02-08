@@ -23,6 +23,7 @@ use Auth;
 
     private  BackEndView $View;
     private  Database $Model;
+
     public string $br = 'Home/';
 
     public function __construct(Database $Model, BackEndView $View)
@@ -110,6 +111,13 @@ use Auth;
      * Эти методы относится к модели - нужно определиться выносить модели в отдельный класс
      * или оставлять в этом...
      */
+    
+
+    public function getCurentUser(): array
+    {
+        return $this->getById('users',$_SESSION['user_id']);
+    }
+
     public function getUserByEmail(string $email)
     {
         $user = $this->Model->find('users')
@@ -167,6 +175,7 @@ use Auth;
             if (password_verify($requestBody['password'],$user['password']))
             {
                 //return $this->responseWrapper('Ok');
+                $this->setUser($user);
                 $this->signIn($user['username'],$user['id']);
                 $this->setMessage('Привет '.$user['username'].'. Рады снова тебя видеть ;)');
                 $this->sendMail(
@@ -384,7 +393,7 @@ use Auth;
         $articles_count = $this->Model->get('articles')->count();
         $tags_count = $this->Model->get('tags')->count();
         $message = $this->getMessage();
-        $html = $this->View->index($categories_count, $articles_count, $tags_count, $message);
+        $html = $this->View->index($categories_count, $articles_count, $tags_count, $message, $this->user);
         return $this->responseWrapper($html);
     }
 
@@ -404,7 +413,8 @@ use Auth;
     public function showUsersList(ServerRequestInterface $request): ResponseInterface
     {
         $users = $this->getAll('users');
-        $html = $this->View->showUserList($users);
+        $user = $this->getCurentUser();
+        $html = $this->View->showUserList($users, $user);
         return $this->responseWrapper($html);
     }
 
@@ -420,7 +430,7 @@ use Auth;
 
         $articles = $this->getActiveArticles();
         $categories = $this->getAll('categories');
-        $user = $this->getById('users',$_SESSION['user_id']);
+        $user = $this->getCurentUser();
         $message = $this->getMessage();
         $html = $this->View->showArticlesList($articles,$categories, $message, $user);
         return $this->responseWrapper($html);
@@ -430,8 +440,9 @@ use Auth;
     {   $article = [];
         $tags = $this->getAll('tags');
         $categories = $this->getAll('categories');
+        $user = $this->getCurentUser();
         $target = 'article-add';
-        $html = $this->View->showAddArticleForm($article, $categories, $target, $tags);
+        $html = $this->View->showAddArticleForm($article, $categories, $target, $tags, $user);
         return $this->responseWrapper($html);
     }
 
@@ -447,7 +458,8 @@ use Auth;
         $tags = $this->getAll('tags');
         $categories = $this->getAll('categories');
         $target = 'article-update/'.$arg['id'];
-        $html = $this->View->showAddArticleForm($article, $categories, $target, $tags, $selected_tag );
+        $user = $this->getCurentUser();
+        $html = $this->View->showAddArticleForm($article, $categories, $target, $tags, $user ,$selected_tag );
         return $this->responseWrapper($html);
     }
 
@@ -518,16 +530,17 @@ use Auth;
     public function showTagsList(ServerRequestInterface $request): ResponseInterface
     {
         $tags = $this->getAll('tags');
-
+        $user = $this->getCurentUser();
         $message = $this->getMessage();
-        $html = $this->View->showTagsList($tags, $message);
+        $html = $this->View->showTagsList($tags, $message, $user);
         return $this->responseWrapper($html);
     }
 
     public function showAddTagForm(ServerRequestInterface $request): ResponseInterface
     {   $tag = [];
         $target = 'tag-add';
-        $html = $this->View->showAddTagForm($tag, $target );
+        $user = $this->getCurentUser();
+        $html = $this->View->showAddTagForm($tag, $target, $user );
         return $this->responseWrapper($html);
     }
 
@@ -554,7 +567,8 @@ use Auth;
     {
         $tag = $this->getById('tags', $arg['id']);
         $target = 'tag-update/'.$arg['id'];
-        $html = $this->View->showAddTagForm($tag, $target );
+        $user = $this->getCurentUser();
+        $html = $this->View->showAddTagForm($tag, $target, $user );
         return $this->responseWrapper($html);
     }
 
@@ -572,14 +586,16 @@ use Auth;
     {
         $categories = $this->getAll('categories');
         $message = $this->getMessage();
-        $html = $this->View->showCategoriesList($categories, $message );
+        $user = $this->getCurentUser();
+        $html = $this->View->showCategoriesList($categories, $message, $user );
         return $this->responseWrapper($html);
     }
 
     public function showAddCategoryForm(ServerRequestInterface $request): ResponseInterface
     {   $category = [];
         $target = 'category-add';
-        $html = $this->View->showAddCategoryForm($category, $target );
+        $user = $this->getCurentUser();
+        $html = $this->View->showAddCategoryForm($category, $target, $user);
         return $this->responseWrapper($html);
     }
 
@@ -610,7 +626,8 @@ use Auth;
     {
         $category = $this->getById('categories', $arg['id']);
         $target = 'category-update/'.$arg['id'];
-        $html = $this->View->showAddCategoryForm($category, $target );
+        $user = $this->getCurentUser();
+        $html = $this->View->showAddCategoryForm($category, $target, $user );
         return $this->responseWrapper($html);
     }
 

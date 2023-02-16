@@ -86,7 +86,7 @@ use Auth;
             $mail->SMTPSecure = null;
             $mail->Port       = 1025;
             // Адрес самой почты и имя отправителя
-            $mail->setFrom('mail@yandex.ru', 'Администрация сайта '.$_SERVER['HTTP_ORIGIN']);
+            $mail->setFrom('mistertwister133@gmail.com', 'Администрация сайта '.$_SERVER['HTTP_ORIGIN']);
             // Получатель письма
             $mail->addAddress($address);
 
@@ -111,7 +111,7 @@ use Auth;
      * Эти методы относится к модели - нужно определиться выносить модели в отдельный класс
      * или оставлять в этом...
      */
-    
+
 
     public function getCurentUser(): array
     {
@@ -174,8 +174,8 @@ use Auth;
         }else{
             if (password_verify($requestBody['password'],$user['password']))
             {
-                //return $this->responseWrapper('Ok');
-                $this->setUser($user);
+                //return $this->responseWrapper('oki');
+                //$this->setUser($user);
                 $this->signIn($user['username'],$user['id']);
                 $this->setMessage('Привет '.$user['username'].'. Рады снова тебя видеть ;)');
                 $this->sendMail(
